@@ -1,0 +1,1446 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#12120f;
+    color:#FFFDF9;
+    font-family:'Space Grotesk', sans-serif;
+}
+
+/* ==========================
+   HERO À PROPOS
+========================== */
+
+.about-hero{
+    width:100%;
+    height:450px;
+
+    margin: 280px auto 0;
+
+    background:#FFFDF9;
+
+    border-radius:0px;
+
+    position:relative;
+
+    overflow:visible;
+
+    opacity:0;
+
+    text-align:justify;
+
+    animation:
+        slideInRight
+        1s ease forwards;
+
+}
+
+
+/* ==========================
+   PHOTO FONDATEUR
+========================== */
+
+.founder{
+
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    height:700px;
+
+    opacity:1;
+
+    animation:
+        slideInRight 1s ease forwards;
+
+    animation-delay:.1s;
+}
+
+/* ==========================
+   TEXTE HERO
+========================== */
+
+.quote-mark{
+    font-size:100px;
+    line-height:1;
+    
+    position:absolute;
+
+    left:45px;
+    
+    top:15px;
+    
+    color:#12120f;
+}
+
+.hero-title{
+    font-size:25px;
+
+    letter-spacing:8px;
+
+    color:#12120f;
+
+    position:absolute;
+
+    left:50px;
+    
+    top:70px;
+
+    height:375px;
+}
+
+.hero-text{
+
+    opacity:0;
+
+    animation:
+        slideInRight
+        1s ease forwards;
+
+    animation-delay:.3s;
+
+}
+
+.hero-description {
+
+    position:absolute;
+
+    left:50px;
+    top:140px;
+
+    width:683px;
+
+    font-size:16px;
+    line-height:1.6;
+
+    color:#12120f;
+
+    font-weight:300;
+
+    z-index:10;
+
+    text-indent: 40px;
+
+
+}
+
+
+/* ==========================
+   PIÈCES LOGO
+========================== */
+
+.logo-pieces{
+
+    position:absolute;
+
+    right:300px;
+    top:120px;
+
+    width:500px;
+    height:250px;
+
+    z-index:3;
+
+}
+
+.piece{
+    position:absolute;
+}
+
+/* ==========================
+   PIÈCE 1
+========================== */
+
+.piece-1{
+
+    width:200px;
+
+    right:400px;
+    bottom:350px;
+    transform:rotate(-18deg);
+    animation:
+        piece1Appear 1s ease forwards,
+        float1 4s ease-in-out infinite;
+
+    animation-delay:
+        1.2s
+        2.2s;
+
+}
+
+
+/* ==========================
+   PIÈCE 2
+========================== */
+
+.piece-2{
+
+    width:200px;
+
+    right:400px;
+    bottom:170px;
+    transform:rotate(12deg);
+    animation:
+        piece2Appear 1s ease forwards,
+        float2 4.5s ease-in-out infinite;
+
+    animation-delay:
+        1.4s
+        2.4s;
+
+}
+
+
+/* ==========================
+   PIÈCE 3
+========================== */
+
+.piece-3{
+
+    width:200px;
+
+    right:400px;
+    top:100px;
+    transform:rotate(-8deg);
+    animation:
+        piece1Appear 1s ease forwards,
+        float3 3.8s ease-in-out infinite;
+
+    animation-delay:
+        1.6s
+        2.6s;
+
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+
+    position:absolute;
+
+    top:25px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    align-items:center;
+
+    z-index:10;
+
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo{
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+.brandmark{
+
+    height:100px;
+
+    width:auto;
+
+    transition:.3s ease;
+
+}
+
+.header-logo a{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.header-logo a:hover .brandmark{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu{
+
+    position:absolute;
+
+    left:24%;
+    transform:translateX(-50%);
+
+}
+
+
+.menu{
+
+    background:#FFFDF9;
+
+    border-radius:999px;
+
+    padding:0 40px;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+.menu a{
+
+    position:relative;
+
+    padding:0 28px;
+
+    text-decoration:none;
+
+    color:#12120f;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.menu a:not(:last-child)::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+    height:20px;
+
+    background:#12120f;
+
+}
+
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:-6px;
+
+    height:1px;
+
+    background:#B48A5A;
+
+    transform:scaleX(0);
+
+    transition:.3s;
+
+}
+
+
+.menu a:hover{
+
+    color:#B48A5A;
+
+}
+
+
+.menu a:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+
+/* ==========================
+   SOCIALS
+========================== */
+
+.header-socials{
+
+    margin-left:auto;
+
+}
+
+
+.socials{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#FFFDF9;
+
+    font-size:28px;
+
+}
+
+
+.socials i{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.socials i:hover{
+
+    color:#B48A5A;
+
+}
+
+
+/* ==========================
+   ANIMATIONS D'ARRIVÉE
+========================== */
+
+@keyframes slideInRight{
+
+    from{
+        opacity:0;
+        transform:translateX(150px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+
+/* ==========================
+   ANIMATIONS DE FLOTAISON
+========================== */
+
+
+@keyframes float1{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-18deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(-18deg);
+    }
+
+}
+
+@keyframes float2{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(0deg);
+    }
+
+}
+
+@keyframes float3{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(18deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(18deg);
+    }
+
+}
+
+/* ==========================
+   PIÈCE 1
+========================== */
+
+@keyframes piece1Appear{
+
+    from{
+        opacity:0;
+        transform:
+            translateX(150px)
+            rotate(-18deg);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateX(0)
+            rotate(-18deg);
+    }
+
+}
+
+
+/* ==========================
+   PIÈCE 2
+========================== */
+
+@keyframes piece2Appear{
+
+    from{
+        opacity:0;
+        transform:
+            translateX(150px)
+            rotate(0deg);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateX(0)
+            rotate(0deg);
+    }
+
+}
+
+
+/* ==========================
+   PIÈCE 3
+========================== */
+
+@keyframes piece3Appear{
+
+    from{
+        opacity:0;
+        transform:
+            translateX(150px)
+            rotate(18deg);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateX(0)
+            rotate(18deg);
+    }
+
+}
+
+/* ==========================
+   BANDE VISION
+========================== */
+
+.vision-section{
+    padding:300px 0;
+    overflow:hidden;
+}
+
+.vision-card{
+    position:relative;
+    width:90%;
+    max-width:1200px;
+    height:280px;
+    margin:auto;
+    overflow:visible;
+}
+
+
+.vision-card.active .vision-band{
+    animation:growBand1 2s ease forwards;
+}
+
+@keyframes growBand1{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:150vw;
+    }
+
+}
+
+
+/* ==========================
+   PIECE
+========================== */
+
+
+.vision-piece{
+    position:absolute;
+    top:50%;
+    right:-500px;
+
+    transform:translateY(-50%);
+
+    z-index:3;
+
+    overflow:visible;
+}
+
+.vision-piece::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:2%;
+    left:10%;
+
+    height:95%;
+
+    width:2000px;
+
+    background:#FFFDF9;
+
+    transform-origin:left center;
+    transform:scaleX(0);
+
+    z-index:-1;
+
+}
+
+.vision-piece img{
+
+    width:117px;
+
+}
+
+
+
+.vision-card.active .vision-piece{
+    animation:movePiece1 2s ease forwards;
+}
+
+@keyframes movePiece1{
+
+    from{
+        right:-500px;
+    }
+
+    to{
+        right:calc(100% - 60px);
+    }
+
+}
+
+.vision-card.active .vision-piece{
+    animation:movePiece1 2s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+.vision-card.active .vision-piece::after{
+
+    animation:trail1 2s cubic-bezier(.65,0,.35,1) forwards;
+
+}
+
+@keyframes trail1{
+
+    from{
+        transform:scaleX(0);
+    }
+
+    to{
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+
+.vision-content{
+
+    opacity:0;
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    padding:17px 80px 60px 125px;
+
+}
+
+
+.vision-card.active .vision-content{
+
+    animation:showText1 .6s ease forwards;
+
+    animation-delay:2s;
+
+}
+
+
+
+@keyframes showText1{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+.vision-content h2,
+.vision-content p{
+
+    color:#12120f;
+
+}
+
+.vision-content h2{
+
+    font-size:25px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+
+}
+
+.vision-content p{
+    font-size:16px;
+    line-height:1.6;
+
+    text-align:justify;
+
+    text-indent: 40px;
+
+}
+
+/* ==========================
+   BANDE CORENTIN
+========================== */
+
+.corentin-section{
+    padding:50px 0 300px;
+    overflow:visible;
+}
+
+.corentin-card{
+    position:relative;
+    width:90%;
+    max-width:1200px;
+    height:0px;
+    margin:auto;
+}
+
+
+.corentin-card.active .corentin-band{
+    animation:growBand2 2s ease forwards;
+}
+
+@keyframes growBand2{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:150vw;
+    }
+
+}
+
+
+/* ==========================
+   PIECE
+========================== */
+
+
+.corentin-piece{
+    position:absolute;
+    top:50%;
+    left:-500px;
+
+    transform:translateY(-50%);
+
+    z-index:3;
+}
+
+.corentin-piece::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:2%;
+    right:25%;
+
+    width:2000px;
+    height:95%;
+
+    background:#FFFDF9;
+
+    transform-origin:right center;
+    transform:scaleX(0);
+
+    z-index:-1;
+
+}
+
+.corentin-piece img{
+
+    width:117px;
+
+}
+
+
+
+.corentin-card.active .corentin-piece{
+    animation:movePiece2 2s ease forwards;
+}
+
+@keyframes movePiece2{
+
+    from{
+        left:-500px;
+    }
+
+    to{
+        left:calc(100% - 60px);
+    }
+
+}
+
+.corentin-card.active .corentin-piece{
+    animation:movePiece2 2s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+.corentin-card.active .corentin-piece::after{
+
+    animation:trail2 2s cubic-bezier(.65,0,.35,1) forwards;
+
+}
+
+@keyframes trail2{
+
+    from{
+        transform:scaleX(0);
+    }
+
+    to{
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+
+.corentin-content{
+    opacity:0;
+
+    position:absolute;
+    inset:0;
+
+    z-index:3;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:0 120px 0 125px;
+
+    box-sizing:border-box;
+}
+
+
+.corentin-card.active .corentin-content{
+
+    animation:showText2 .6s ease forwards;
+
+    animation-delay:2s;
+
+}
+
+
+
+@keyframes showText2{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+.corentin-content h2,
+.corentin-content p{
+
+    color:#12120f;
+
+}
+
+.corentin-content h2{
+
+    font-size:25px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+
+    text-align: right;
+
+}
+
+.corentin-content p{
+    font-size:16px;
+    line-height:1.6;
+
+    text-align:justify;
+
+    text-indent: 40px;
+
+}
+
+/* ==========================
+   VALEURS
+========================== */
+
+.values-section{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:100px auto;
+
+}
+
+.value-item{
+
+    margin-bottom:80px;
+
+}
+
+.value-item:last-child{
+
+    margin-bottom:0;
+
+}
+
+.value-item h2{
+
+    position:relative;
+
+    font-size:25px;
+    font-weight:300;
+
+    letter-spacing:3px;
+
+    margin-bottom:35px;
+
+    color:#FFFDF9;
+
+    padding-left:28px;
+
+}
+
+.value-item h2::before{
+
+    content:"•";
+
+    position:absolute;
+
+    left:0;
+
+    color:#B48A5A;
+
+}
+
+.value-item p{
+
+    max-width:1100px;
+
+    font-size:16px;
+    line-height:1.6;
+
+    text-align:justify;
+
+    color:#FFFDF9;
+
+    text-indent: 40px;
+
+}
+
+/* ==========================
+   SCROLL INDICATOR
+========================== */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    left:50%;
+    top:575px;
+
+    width:5px;
+    height:40px;
+
+    background:#FFFDF9;
+
+    transform:translateX(-50%);
+
+    animation:float 1.8s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(10px);
+    }
+
+    100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+}
+
+
+/* ==========================
+   BANDE MISSION
+========================== */
+
+.mission-section{
+    padding:200px 0 300px;
+    overflow:hidden;
+}
+
+.mission-card{
+    position:relative;
+    width:90%;
+    max-width:1200px;
+    height:0px;
+    margin:auto;
+}
+
+
+.mission-card.active .mission-band{
+    animation:growBand3 2s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+@keyframes growBand3{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:150vw;
+    }
+
+}
+
+
+/* ==========================
+   PIECE
+========================== */
+
+
+.mission-piece{
+    position:absolute;
+    top:50%;
+    right:-500px;
+
+    transform:translateY(-50%);
+
+    z-index:3;
+}
+
+.mission-piece::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:2%;
+    left:25%;
+
+    width:2000px;
+    height:95%;
+
+    background:#FFFDF9;
+
+    transform-origin:left center;
+    transform:scaleX(0);
+
+    z-index:-1;
+
+}
+
+.mission-piece img{
+
+    width:117px;
+
+}
+
+
+.mission-card.active .mission-piece{
+    animation:movePiece3 2s ease forwards;
+}
+
+@keyframes movePiece3{
+
+    from{
+        right:-500px;
+    }
+
+    to{
+        right:calc(100% - 60px);
+    }
+
+}
+
+.mission-card.active .mission-piece{
+    animation:movePiece3 2s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+.mission-card.active .mission-piece::after{
+
+    animation:trail3 2s cubic-bezier(.65,0,.35,1) forwards;
+
+}
+
+@keyframes trail3{
+
+    from{
+        transform:scaleX(0);
+    }
+
+    to{
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+
+.mission-content{
+    opacity:0;
+
+    position:absolute;
+    inset:0;
+
+    z-index:3;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:0 120px 0 125px;
+
+    box-sizing:border-box;
+}
+
+
+.mission-card.active .mission-content{
+
+    animation:showText3 .6s ease forwards;
+
+    animation-delay:2s;
+
+}
+
+
+
+@keyframes showText3{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+.mission-content h2,
+.mission-content p{
+
+    color:#12120f;
+
+}
+
+.mission-content h2{
+
+    font-size:25px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+
+    text-align: left;
+
+}
+
+.mission-content p{
+    font-size:16px;
+    line-height:1.6;
+
+    text-align:justify;
+
+    text-indent: 40px;
+
+}
+
+
+/* ==========================
+   BANDE MESSAGE
+========================== */
+
+.message-section{
+    padding:200px 0 300px;
+    overflow:hidden;
+}
+
+.message-card{
+    position:relative;
+    width:90%;
+    max-width:1200px;
+    height:0px;
+    margin:auto;
+}
+
+
+.message-card.active .message-band{
+    animation:growBand4 2s ease forwards;
+}
+
+@keyframes growBand4{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:150vw;
+    }
+
+}
+
+
+/* ==========================
+   PIECE
+========================== */
+
+
+.message-piece{
+    position:absolute;
+    top:50%;
+    left:-500px;
+
+    transform:translateY(-50%);
+
+    z-index:3;
+}
+
+.message-piece::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:2%;
+    right:25%;
+
+    width:2000px;
+    height:95%;
+
+    background:#FFFDF9;
+
+    transform-origin:right center;
+    transform:scaleX(0);
+
+    z-index:-1;
+
+}
+
+.message-piece img{
+
+    width:117px;
+
+}
+
+
+
+.message-card.active .message-piece{
+    animation:movePiece4 2s ease forwards;
+}
+
+@keyframes movePiece4{
+
+    from{
+        left:-500px;
+    }
+
+    to{
+        left:calc(100% - 60px);
+    }
+
+}
+
+.message-card.active .message-piece{
+    animation:movePiece4 2s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+.message-card.active .message-piece::after{
+
+    animation:trail4 2s cubic-bezier(.65,0,.35,1) forwards;
+
+}
+
+@keyframes trail4{
+
+    from{
+        transform:scaleX(0);
+    }
+
+    to{
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+
+.message-content{
+    opacity:0;
+
+    position:absolute;
+    inset:0;
+
+    z-index:3;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:0 120px 0 125px;
+
+    box-sizing:border-box;
+}
+
+
+.message-card.active .message-content{
+
+    animation:showText4 .6s ease forwards;
+
+    animation-delay:2s;
+
+}
+
+
+
+@keyframes showText4{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+.message-content h2,
+.message-content p{
+
+    color:#120f0f;
+
+}
+
+.message-content h2{
+
+    font-size:25px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+
+    text-align: right;
+
+}
+
+.message-content p{
+    font-size:16px;
+    line-height:1.6;
+
+    text-align:justify;
+
+    text-indent: 40px;
+
+}
