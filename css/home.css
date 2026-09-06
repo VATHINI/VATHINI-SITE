@@ -535,8 +535,10 @@ body.lock-scroll{
 
     color:rgba(255,253,249,.9);
 
-    margin-left:200px;
-    margin-right:200px;
+    max-width:1000px;
+    width:90%;
+
+    margin:0 auto;
 
 }
 
@@ -816,9 +818,6 @@ html{
     top:50%;
     left:50%;
 
-    width:60%;
-    height:60%;
-
     display:flex;
 
     overflow:hidden;
@@ -831,7 +830,12 @@ html{
 
     z-index:1;
 
-    transform:translate(-57%, -70%) translateX(100px);
+    width:min(1100px,80vw);
+
+    height:60%;
+
+    transform:
+        translate(-50%, -60%);
 
     display:flex;
 
@@ -1187,9 +1191,8 @@ html{
 
     position:absolute;
 
-    right:120px;
-
-    bottom:120px;
+    right:5%;
+    bottom:80px;
 
     display:inline-flex;
 
