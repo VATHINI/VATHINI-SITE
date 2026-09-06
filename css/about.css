@@ -220,7 +220,7 @@ body{
     left:5%;
     top:65%;
 
-    transform:rotate(-8deg);
+    transform:rotate(8deg);
 
     animation:
         piece1Appear 1s ease forwards,
