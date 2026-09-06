@@ -177,12 +177,7 @@ body{
     transform:rotate(-18deg);
 
     animation:
-        piece1Appear 1s ease forwards,
         float1 4s ease-in-out infinite;
-
-    animation-delay:
-        1.2s,
-        2.2s;
 
 }
 
@@ -200,12 +195,7 @@ body{
     transform:rotate(12deg);
 
     animation:
-        piece2Appear 1s ease forwards,
         float2 4.5s ease-in-out infinite;
-
-    animation-delay:
-        1.4s,
-        2.4s;
 
 }
 
@@ -220,15 +210,10 @@ body{
     left:5%;
     top:65%;
 
-    transform:rotate(8deg);
+    transform:rotate(-8deg);
 
     animation:
-        piece1Appear 1s ease forwards,
         float3 3.8s ease-in-out infinite;
-
-    animation-delay:
-        1.6s,
-        2.6s;
 
 }
 
