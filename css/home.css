@@ -405,7 +405,10 @@ body.lock-scroll{
 
 .tagline span{
 
-    color:#B48A5A;
+    color:#FFFDF9;
+    text-decoration: underline #B48A5A;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
 }
 
 
@@ -461,9 +464,7 @@ body.lock-scroll{
 
     border-radius:40px;
 
-    opacity:0;
-
-    filter:brightness(.8);
+    opacity:1;
 
     transform:scale(.9);
 
@@ -489,7 +490,7 @@ body.lock-scroll{
 
     to{
 
-        opacity:.25;
+        opacity:1;
 
         transform:scale(1);
 
@@ -693,7 +694,7 @@ html{
 
     object-fit:cover;
 
-    opacity:.35;
+    opacity:1;
 
     transition:.45s ease;
 
@@ -785,7 +786,10 @@ html{
 
 .gallery-title span{
 
-    color:#B48A5A;
+    color:#FFFDF9;
+    text-decoration: underline #B48A5A;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
 
 }
 
@@ -855,7 +859,7 @@ html{
 
     flex:1;
 
-    background-image:url("../images/photo-devis.jpg");
+    background-image:url("../images/photo-devis.png");
 
     background-size:2400% auto;
 
