@@ -42,11 +42,11 @@ body.lock-scroll{
 .intro-content{
     display:flex;
     flex-direction:column;
+    gap:3rem;
 }
 
 .word{
-
-    font-size:clamp(4rem, 9vw, 9rem);
+    font-size:clamp(1.5rem, 3vw, 3.5rem);
     font-weight:900;
 
     line-height:.82;
@@ -64,19 +64,21 @@ body.lock-scroll{
 }
 
 .word-1{
-    animation-delay:.5s;
+    animation-delay:0.5s;
 }
 
 .word-2{
-    animation-delay:1s;
+    animation-delay:2.5s;
+    line-height:1.1;
+
 }
 
 .word-3{
-    animation-delay:1.5s;
+    animation-delay:5s;
 }
 
 .word.hide{
-    animation:hideWord .5s forwards;
+    animation:hideWord 0.5s forwards;
 }
 
 @keyframes hideWord{
@@ -183,13 +185,13 @@ body.lock-scroll{
 
     display:flex;
     align-items:center;
-
+    margin-right:40px;
 }
 
 
 .brandmark{
 
-    height:100px;
+    height:75px;
 
     width:auto;
 
@@ -339,17 +341,21 @@ body.lock-scroll{
 
 }
 
+.socials a{
 
-.socials i{
+    color:#FFFDF9;
 
-    cursor:pointer;
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
 
     transition:.3s;
 
 }
 
-
-.socials i:hover{
+.socials a:hover{
 
     color:#B48A5A;
 
@@ -1253,5 +1259,40 @@ html{
 .cta-button:hover i{
 
     transform:translateX(5px);
+
+}
+
+/* ==========================
+   INFOS TECHNIQUES SITE
+========================== */
+
+.site-notice{
+
+    position:fixed;
+
+    top:50%;
+    right:40px;
+
+    transform:translateY(-50%);
+
+    background:#6E6A65;
+    color:#FFFDF9;
+
+    padding:18px 24px;
+
+    border-radius:16px;
+
+    font-size:14px;
+    font-weight:500;
+
+    text-align:center;
+
+    z-index:1000;
+
+    max-width:250px;
+
+    box-shadow:0 5px 12px #D8D0C7;
+
+    backdrop-filter:blur(8px);
 
 }

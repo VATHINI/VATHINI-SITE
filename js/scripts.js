@@ -102,70 +102,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        body.classList.remove("lock-scroll");
+    body.classList.remove("lock-scroll");
 
-    }, 4000);
-
-
-
-
-    setTimeout(() => {
-
-        document.querySelector('.word-3').classList.add('hide');
-
-    }, 3400);
+}, 10000);
 
 
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        document.querySelector('.word-2').classList.add('hide');
+    document.querySelector('.word-3').classList.add('hide');
 
-    }, 3800);
-
-
-
-    setTimeout(() => {
-
-        document.querySelector('.word-1').classList.add('hide');
-
-    }, 4200);
+}, 9000);
 
 
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        intro.classList.add('fade-out');
+    document.querySelector('.word-2').classList.add('hide');
 
-    }, 4500);
-
-
-
-
-    // FIN RÉELLE DE L'INTRO
-
-    setTimeout(() => {
-
-
-        intro.style.display = 'none';
-
-        home.classList.add('show');
-
-
-        introFinished = true;
+}, 9500);
 
 
 
-        if(cta){
+setTimeout(() => {
 
-            observer.observe(cta);
+    document.querySelector('.word-1').classList.add('hide');
 
-        }
+}, 10000);
 
 
-    }, 5200);
+
+setTimeout(() => {
+
+    intro.classList.add('fade-out');
+
+}, 10300);
+
+
+
+// FIN RÉELLE DE L'INTRO
+
+setTimeout(() => {
+
+    intro.style.display = 'none';
+
+    home.classList.add('show');
+
+    introFinished = true;
+
+    if(cta){
+        observer.observe(cta);
+    }
+
+}, 11000);
 
 
 

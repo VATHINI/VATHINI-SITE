@@ -247,13 +247,13 @@ body{
 
     display:flex;
     align-items:center;
-
+    margin-right:40px;
 }
 
 
 .brandmark{
 
-    height:100px;
+    height:75px;
 
     width:auto;
 
@@ -403,17 +403,21 @@ body{
 
 }
 
+.socials a{
 
-.socials i{
+    color:#FFFDF9;
 
-    cursor:pointer;
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
 
     transition:.3s;
 
 }
 
-
-.socials i:hover{
+.socials a:hover{
 
     color:#B48A5A;
 
