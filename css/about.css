@@ -15,7 +15,7 @@ html{
 body{
     background:#12120f;
     color:#FFFDF9;
-    font-family:'Space Grotesk', sans-serif;
+    font-family:'Space+Grotesk', sans-serif;
 }
 
 /* ==========================
@@ -140,7 +140,7 @@ body{
 
     width:min(800px, 45vw);
 
-    font-size:clamp(16px, 0.9vw, 16px);
+    font-size:clamp(20px, 0.9vw, 20px);
 
     line-height:1.6;
 
@@ -154,6 +154,26 @@ body{
 
 }
 
+.hero-description span{
+    position:absolute;
+
+    left:0px;
+    top:140px;
+
+    width:min(800px, 45vw);
+
+    font-size:clamp(20px, 0.9vw, 20px);
+
+    line-height:1.6;
+
+    color:#12120f;
+
+    font-weight:300;
+
+    z-index:10;
+
+    text-indent:40px;
+}
 
 /* ==========================
    PIÈCES
@@ -747,7 +767,7 @@ body{
 }
 
 .vision-content p{
-    font-size:16px;
+    font-size:20px;
     line-height:1.6;
 
     text-align:justify;
@@ -940,7 +960,7 @@ body{
 }
 
 .corentin-content p{
-    font-size:16px;
+    font-size:20px;
     line-height:1.6;
 
     text-align:justify;
@@ -1007,7 +1027,7 @@ body{
 
     max-width:1100px;
 
-    font-size:16px;
+    font-size:20px;
     line-height:1.6;
 
     text-align:justify;
@@ -1239,7 +1259,7 @@ body{
 }
 
 .mission-content p{
-    font-size:16px;
+    font-size:20px;
     line-height:1.6;
 
     text-align:justify;
@@ -1433,7 +1453,7 @@ body{
 }
 
 .message-content p{
-    font-size:16px;
+    font-size:20px;
     line-height:1.6;
 
     text-align:justify;
