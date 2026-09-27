@@ -625,3 +625,43 @@ body{
     border-color:#C0392B;
 
 }
+
+/* ==========================
+   CONFIRMATION ENVOI
+========================== */
+
+.form-success{
+
+    display:none;
+
+    color:#B48A5A;
+
+    font-size:13px;
+
+    text-align:right;
+
+    margin-top:-15px;
+
+}
+
+.send-button.sent{
+
+    background:#B48A5A;
+    color:#FFFDF9;
+
+    cursor:default;
+
+}
+
+.send-button.sent:hover{
+
+    background:#B48A5A;
+    color:#FFFDF9;
+
+}
+
+.send-button:disabled{
+
+    opacity:1;
+
+}

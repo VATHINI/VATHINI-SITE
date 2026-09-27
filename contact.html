@@ -256,6 +256,10 @@ content="Studio de design spécialisé dans la création de constructions person
 
 </button>
 
+<p class="form-success">
+    Merci pour votre message. Nous reviendrons vers vous prochainement.
+</p>
+
 
         </form>
 
@@ -267,21 +271,106 @@ content="Studio de design spécialisé dans la création de constructions person
 <script>
 
 const form = document.querySelector('.contact-form');
-const errorMessage = document.querySelector('.form-error');
 
-form.addEventListener('submit', function(event){
+const errorMessage = document.querySelector('.form-error');
+const successMessage = document.querySelector('.form-success');
+
+const sendButton = document.querySelector('.send-button');
+const sendText = document.querySelector('.send-text');
+const sendIcon = sendButton.querySelector('i');
+
+
+form.addEventListener('submit', async function(event){
+
+    event.preventDefault();
+
+
+    // ==========================
+    // VÉRIFICATION
+    // ==========================
 
     if(!form.checkValidity()){
 
-        event.preventDefault();
-
         errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
 
         form.reportValidity();
 
-    }else{
+        return;
 
-        errorMessage.style.display = 'none';
+    }
+
+
+    errorMessage.style.display = 'none';
+
+
+    // ==========================
+    // ENVOI EN COURS
+    // ==========================
+
+    sendButton.disabled = true;
+
+    sendText.textContent = 'ENVOI...';
+
+    sendIcon.className = 'fa-solid fa-spinner fa-spin';
+
+
+    try{
+
+        const formData = new FormData(form);
+
+        const response = await fetch(
+            'https://api.web3forms.com/submit',
+            {
+                method:'POST',
+                body:formData
+            }
+        );
+
+        const data = await response.json();
+
+
+        // ==========================
+        // SUCCÈS
+        // ==========================
+
+        if(data.success){
+
+            form.reset();
+
+            sendText.textContent = 'MESSAGE ENVOYÉ';
+
+            sendIcon.className = 'fa-solid fa-check';
+
+            successMessage.style.display = 'block';
+
+            sendButton.classList.add('sent');
+
+        }
+
+        // ==========================
+        // ERREUR WEB3FORMS
+        // ==========================
+
+        else{
+
+            throw new Error('Erreur Web3Forms');
+
+        }
+
+
+    }catch(error){
+
+        errorMessage.textContent =
+            "Une erreur est survenue lors de l'envoi. Veuillez réessayer.";
+
+        errorMessage.style.display = 'block';
+
+        sendText.textContent = 'RÉESSAYER';
+
+        sendIcon.className = 'fa-solid fa-arrow-right';
+
+        sendButton.disabled = false;
 
     }
 
