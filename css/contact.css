@@ -1,0 +1,627 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:#12120F;
+
+    color:#12120F;
+
+    font-family:'Montserrat', sans-serif;
+
+}
+
+
+
+/* ==========================
+   CONTACT
+========================== */
+
+.contact-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:60px;
+
+}
+
+
+.contact-card{
+
+    width:90%;
+    max-width:1400px;
+
+    min-height:650px;
+
+    background:#FFFDF9;
+
+    border-radius:35px;
+
+    display:grid;
+
+    grid-template-columns:1fr 2px 1fr;
+
+    padding:60px;
+
+    transform:translateY(40px);
+
+}
+
+
+
+/* ==========================
+   PARTIE GAUCHE
+========================== */
+
+.contact-info{
+
+    position:relative;
+
+    padding:0 60px 0 10px;
+
+}
+
+
+.contact-info h1{
+
+    font-size:40px;
+
+    font-weight:300;
+
+    margin-bottom:120px;
+
+}
+
+
+.contact-info p{
+
+    max-width:600px;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    text-align:justify;
+
+}
+
+
+
+/* ==========================
+   BOUTON DEVIS
+========================== */
+
+.cta-button{
+
+    position:absolute;
+
+    left:50%;
+    bottom:110px;
+
+    transform:translateX(-50%);
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:20px 38px;
+
+    white-space:nowrap;
+
+    text-decoration:none;
+
+    color:#12120F;
+
+    border:2px solid #B48A5A;
+
+    border-radius:999px;
+
+    letter-spacing:2px;
+
+    transition:.35s ease;
+
+}
+
+
+.cta-button span{
+
+    color:#B48A5A;
+
+    transition:.35s ease;
+
+}
+
+
+.cta-button:hover{
+
+    background:#B48A5A;
+
+    color:#FFFDF9;
+
+}
+
+
+.cta-button:hover span{
+
+    color:#FFFDF9;
+
+}
+
+
+
+/* ==========================
+   SÉPARATEUR
+========================== */
+
+.contact-separator{
+
+    width:2px;
+
+    height:80%;
+
+    align-self:center;
+
+    background:#12120F;
+
+}
+
+
+
+/* ==========================
+   FORMULAIRE
+========================== */
+
+.contact-form{
+
+    padding:60px 70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+
+
+/* ==========================
+   NOM / PRÉNOM
+========================== */
+
+.name-fields{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+.name-fields input{
+
+    flex:1;
+
+}
+
+
+
+/* ==========================
+   CHAMPS
+========================== */
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea{
+
+    width:100%;
+
+    background:transparent;
+
+    border:2px solid #B48A5A;
+
+    border-radius:999px;
+
+    padding:15px 25px;
+
+    outline:none;
+
+    color:#B48A5A;
+
+    font-family:'Space Grotesk', sans-serif;
+
+    font-size:16px;
+
+    transition:.3s ease;
+
+}
+
+
+
+/* ==========================
+   PLACEHOLDER
+========================== */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+    color:#6E6A65;
+
+    opacity:1;
+
+    text-align:center;
+
+}
+
+
+
+/* ==========================
+   FOCUS
+========================== */
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus{
+
+    border-color:#B48A5A;
+
+    box-shadow:0 0 0 3px rgba(180,138,90,.12);
+
+}
+
+
+
+/* ==========================
+   MESSAGE
+========================== */
+
+.contact-form textarea{
+
+    height:220px;
+
+    resize:none;
+
+    border-radius:35px;
+
+    text-align:left;
+
+}
+
+
+
+/* ==========================
+   CONFIDENTIALITÉ
+========================== */
+
+.privacy{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:12px;
+
+    color:#6E6A65;
+
+    cursor:pointer;
+
+}
+
+
+.privacy input{
+
+    width:18px;
+    height:18px;
+
+    accent-color:#B48A5A;
+
+    cursor:pointer;
+
+}
+
+
+.privacy a{
+
+    color:#6E6A65;
+
+    text-decoration:underline;
+
+    transition:.3s ease;
+
+}
+
+
+.privacy a:hover{
+
+    color:#B48A5A;
+
+}
+
+
+
+/* ==========================
+   ENVOYER
+========================== */
+
+.form-error{
+
+    display:none;
+
+    color:#C0392B;
+
+    font-size:12px;
+
+    margin-top:-10px;
+
+}
+
+.send-button{
+
+    align-self:flex-end;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 28px;
+
+    background:transparent;
+
+    border:2px solid #B48A5A;
+
+    border-radius:999px;
+
+    color:#12120F;
+
+    font-family:'Space Grotesk', sans-serif;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+
+.send-button:hover{
+
+    background:#B48A5A;
+
+    color:#FFFDF9;
+
+}
+
+
+.send-button i{
+
+    transition:.35s ease;
+
+}
+
+
+.send-button:hover i{
+
+    transform:translateX(5px);
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+    position:absolute;
+
+    top:25px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:100;
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo{
+    display:flex;
+    align-items:center;
+    margin-right:40px;
+}
+
+.brandmark{
+
+    height:75px;
+    width:auto;
+
+    transition:.3s ease;
+
+}
+
+.header-logo a{
+
+    display:flex;
+    align-items:center;
+
+}
+
+.header-logo a:hover .brandmark{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu{
+
+    position:static;
+    transform:none;
+
+}
+
+.menu{
+
+    background:#FFFDF9;
+
+    border-radius:999px;
+
+    padding:0 40px;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+}
+
+.menu a{
+
+    position:relative;
+
+    padding:0 28px;
+
+    text-decoration:none;
+
+    color:#12120F;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.menu a:not(:last-child)::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+    height:20px;
+
+    background:#12120F;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:-6px;
+
+    height:1px;
+
+    background:#B48A5A;
+
+    transform:scaleX(0);
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    color:#B48A5A;
+
+}
+
+.menu a:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+/* ==========================
+   SOCIALS
+========================== */
+
+.header-socials{
+    margin-left:auto;
+}
+
+.socials{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-size:28px;
+
+}
+
+.socials a{
+
+    color:#FFFDF9;
+
+    text-decoration:none;
+
+    display:flex;
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    color:#B48A5A;
+
+}
+
+/* ==========================
+   ERREURS FORMULAIRE
+========================== */
+
+.contact-form input:invalid:not(:placeholder-shown),
+.contact-form textarea:invalid:not(:placeholder-shown){
+
+    border-color:#C0392B;
+
+}
