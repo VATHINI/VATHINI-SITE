@@ -154,6 +154,7 @@ content="Studio de design spécialisé dans la création de constructions person
 
         <form
             class="contact-form"
+            id="contact-form"
             action="https://api.web3forms.com/submit"
             method="POST"
             novalidate
@@ -163,16 +164,16 @@ content="Studio de design spécialisé dans la création de constructions person
             <!-- WEB3FORMS -->
 
             <input
-                type="hidden"
-                name="access_key"
-                value="648f9101-1148-42fe-8ef8-42f81120517e"
-            >
+            type="hidden"
+            name="access_key"
+            value="648f9101-1148-42fe-8ef8-42f81120517e"
+        >
 
-            <input
-                type="hidden"
-                name="subject"
-                value="Nouveau message depuis VATHINI.fr"
-            >
+        <input
+            type="hidden"
+            name="subject"
+            value="Nouveau message depuis VATHINI.fr"
+        >
 
 
             <!-- PRÉNOM + NOM -->
@@ -250,7 +251,7 @@ content="Studio de design spécialisé dans la création de constructions person
 
 <button type="submit" class="send-button">
 
-    ENVOYER
+    <span class="send-text">ENVOYER</span>
 
     <i class="fa-solid fa-arrow-right"></i>
 
@@ -268,115 +269,7 @@ content="Studio de design spécialisé dans la création de constructions person
 
 </section>
 
-<script>
-
-const form = document.querySelector('.contact-form');
-
-const errorMessage = document.querySelector('.form-error');
-const successMessage = document.querySelector('.form-success');
-
-const sendButton = document.querySelector('.send-button');
-const sendText = document.querySelector('.send-text');
-const sendIcon = sendButton.querySelector('i');
-
-
-form.addEventListener('submit', async function(event){
-
-    event.preventDefault();
-
-
-    // ==========================
-    // VÉRIFICATION
-    // ==========================
-
-    if(!form.checkValidity()){
-
-        errorMessage.style.display = 'block';
-        successMessage.style.display = 'none';
-
-        form.reportValidity();
-
-        return;
-
-    }
-
-
-    errorMessage.style.display = 'none';
-
-
-    // ==========================
-    // ENVOI EN COURS
-    // ==========================
-
-    sendButton.disabled = true;
-
-    sendText.textContent = 'ENVOI...';
-
-    sendIcon.className = 'fa-solid fa-spinner fa-spin';
-
-
-    try{
-
-        const formData = new FormData(form);
-
-        const response = await fetch(
-            'https://api.web3forms.com/submit',
-            {
-                method:'POST',
-                body:formData
-            }
-        );
-
-        const data = await response.json();
-
-
-        // ==========================
-        // SUCCÈS
-        // ==========================
-
-        if(data.success){
-
-            form.reset();
-
-            sendText.textContent = 'MESSAGE ENVOYÉ';
-
-            sendIcon.className = 'fa-solid fa-check';
-
-            successMessage.style.display = 'block';
-
-            sendButton.classList.add('sent');
-
-        }
-
-        // ==========================
-        // ERREUR WEB3FORMS
-        // ==========================
-
-        else{
-
-            throw new Error('Erreur Web3Forms');
-
-        }
-
-
-    }catch(error){
-
-        errorMessage.textContent =
-            "Une erreur est survenue lors de l'envoi. Veuillez réessayer.";
-
-        errorMessage.style.display = 'block';
-
-        sendText.textContent = 'RÉESSAYER';
-
-        sendIcon.className = 'fa-solid fa-arrow-right';
-
-        sendButton.disabled = false;
-
-    }
-
-});
-
-</script>
+<script src="js/contact.js"></script>
 
 </body>
 
