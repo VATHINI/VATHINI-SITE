@@ -43,6 +43,18 @@ body{
 
 }
 
+.contact-photo {
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+
+    width: 16%;
+
+    object-fit: cover;
+    border-radius: 18px;
+
+    display: block;
+}
 
 .contact-card{
 
@@ -248,7 +260,7 @@ body{
 
     color:#B48A5A;
 
-    font-family:'Space Grotesk', sans-serif;
+    font-family:'Montserrat', sans-serif;
 
     font-size:16px;
 
@@ -397,7 +409,7 @@ body{
 
     color:#12120F;
 
-    font-family:'Space Grotesk', sans-serif;
+    font-family:'Montserrat', sans-serif;
 
     letter-spacing:2px;
 

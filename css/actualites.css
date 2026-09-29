@@ -1,0 +1,720 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:#12120F;
+
+    color:#12120F;
+
+    font-family:'Montserrat', sans-serif;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+    position:absolute;
+
+    top:25px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:100;
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo{
+    display:flex;
+    align-items:center;
+    margin-right:40px;
+}
+
+.brandmark{
+
+    height:75px;
+    width:auto;
+
+    transition:.3s ease;
+
+}
+
+.header-logo a{
+
+    display:flex;
+    align-items:center;
+
+}
+
+.header-logo a:hover .brandmark{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu{
+
+    position:static;
+    transform:none;
+
+}
+
+.menu{
+
+    background:#FFFDF9;
+
+    border-radius:999px;
+
+    padding:0 40px;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+}
+
+.menu a{
+
+    position:relative;
+
+    padding:0 28px;
+
+    text-decoration:none;
+
+    color:#12120F;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.menu a:not(:last-child)::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+    height:20px;
+
+    background:#12120F;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:-6px;
+
+    height:1px;
+
+    background:#B48A5A;
+
+    transform:scaleX(0);
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    color:#B48A5A;
+
+}
+
+.menu a:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+/* ==========================
+   SOCIALS
+========================== */
+
+.header-socials{
+    margin-left:auto;
+}
+
+.socials{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-size:28px;
+
+}
+
+.socials a{
+
+    color:#FFFDF9;
+
+    text-decoration:none;
+
+    display:flex;
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    color:#B48A5A;
+
+}
+
+/* ==========================
+   PAGE ACTUALITÉS
+========================== */
+
+.actualites {
+    min-height: 100vh;
+
+    padding-top: 160px;
+
+    background: #12120F;
+}
+
+
+/* ==========================
+   INTRODUCTION
+========================== */
+
+.actualites-intro {
+    position: relative;
+
+    width: calc(100% - 80px);
+    min-height: 250px;
+
+    margin: 0 auto;
+
+    padding: 42px 45px;
+
+    background: #FFFDF9;
+
+    color: #12120F;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+
+.actualites-intro-text {
+    max-width: 620px;
+}
+
+
+.actualites-intro h1 {
+    margin-bottom: 14px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+.actualites-intro p {
+    max-width: 445px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: justify;
+}
+
+
+/* ==========================
+   CONSTRUCTION DÉCORATIVE
+========================== */
+
+.actualites-decoration {
+    position: absolute;
+
+    right: 30px;
+    bottom: 12px;
+
+    width: 150px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==========================
+   ZONE DES ARTICLES
+========================== */
+
+.actualites-content {
+    width: calc(100% - 80px);
+
+    min-height: 700px;
+
+    margin: 8px auto 0;
+
+    background: #B0A391;
+}
+
+/* ==========================
+   GRILLE DES ACTUALITÉS
+========================== */
+
+.actualites-content {
+    position: relative;
+
+    width: calc(100% - 80px);
+    min-height: 700px;
+
+    margin: 8px auto 0;
+    padding: 80px 120px 60px;
+
+    background: #B0A391;
+}
+
+
+.news-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 400px));
+
+    justify-content: center;
+
+    gap: 110px;
+}
+
+
+/* ==========================
+   CARTE ACTUALITÉ
+========================== */
+
+.news-card {
+    position: relative;
+
+    min-height: 465px;
+
+    padding: 35px 28px 30px;
+
+    background: #FFFDF9;
+
+    border: 2px solid #B48A5A;
+
+    color: #12120F;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.news-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 12px 25px rgba(18, 18, 15, .15);
+}
+
+
+.news-card h2 {
+    min-height: 110px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    line-height: 1.45;
+}
+
+
+/* ==========================
+   DATE
+========================== */
+
+.news-date {
+    position: relative;
+
+    margin: 8px 0 30px;
+
+    padding: 7px 0;
+
+    text-align: center;
+
+    color: #6f6b64;
+
+    font-size: 14px;
+
+    border-top: 2px solid #77736d;
+    border-bottom: 2px solid #77736d;
+}
+
+
+/* ==========================
+   IMAGE
+========================== */
+
+.news-card img {
+    display: block;
+
+    width: 210px;
+    height: 210px;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+}
+
+
+/* ==========================
+   SCOTCH
+========================== */
+
+.tape {
+    position: absolute;
+
+    z-index: 5;
+
+    display: block;
+
+    width: 30px;
+    height: 60px;
+
+    background: #B48A5A;
+
+    opacity: .9;
+}
+
+
+.tape-top {
+    top: -32px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* ==========================
+   MESSAGE BAS DE PAGE
+========================== */
+
+.news-coming {
+    width: max-content;
+
+    margin: 45px auto 0;
+
+    padding: 6px 8px;
+
+    color: #FFFDF9;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    border-top: 2px solid #FFFDF9;
+    border-bottom: 2px solid #FFFDF9;
+}
+
+/* ==========================
+   ARTICLE OUVERT
+========================== */
+
+.article-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 80px 100px;
+
+    background: #B0A391;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+
+.article-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.article-open {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    padding: 45px 40px 40px;
+
+    background: #FFFDF9;
+
+    border: 2px solid #B48A5A;
+
+    color: #12120F;
+
+    transform: scale(.96);
+
+    transition: transform .3s ease;
+}
+
+
+.article-overlay.active .article-open {
+    transform: scale(1);
+}
+
+
+.article-open h2 {
+    margin-bottom: 30px;
+
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+
+.article-date {
+    margin: 0 100px 35px;
+
+    padding: 7px;
+
+    text-align: center;
+
+    color: #6f6b64;
+
+    border-top: 2px solid #77736d;
+    border-bottom: 2px solid #77736d;
+}
+
+
+.article-body {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+
+.article-text p {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.55;
+
+    text-align: justify;
+}
+
+
+.article-image {
+    width: 100%;
+
+    border-radius: 15px;
+}
+
+.article-footer-text {
+    margin-top: 20px;
+}
+
+.article-footer-text p {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    line-height: 1.55;
+
+    text-align: justify;
+}
+
+.article-conclusion {
+    margin-bottom: 0 !important;
+
+    font-weight: 600;
+    text-align: center !important;
+}
+
+
+/* SCOTCHS ARTICLE */
+
+.article-tape {
+    position: absolute;
+
+    top: -20px;
+
+    width: 28px;
+    height: 75px;
+
+    background: #B48A5A;
+}
+
+
+.article-tape-left {
+    left: 15px;
+
+    transform: rotate(45deg);
+}
+
+
+.article-tape-right {
+    right: 15px;
+
+    transform: rotate(-45deg);
+}
+
+
+/* FERMETURE */
+
+.article-close {
+    position: absolute;
+
+    top: 20px;
+    right: 55px;
+
+    z-index: 10;
+
+    padding: 0 0 4px;
+
+    border: none;
+    background: none;
+
+    color: #12120F;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: color .3s ease;
+}
+
+
+/* SOULIGNEMENT */
+
+.article-close::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: #B48A5A;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform .3s ease;
+}
+
+
+/* SURVOL */
+
+.article-close:hover {
+    color: #B48A5A;
+}
+
+.article-close:hover::after {
+    transform: scaleX(1);
+}
+
+.news-author {
+    position: absolute;
+
+    right: 20px;
+    bottom: 15px;
+
+    max-width: 300px;
+
+    margin: 0;
+
+    color: #77736D;
+
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    text-align: right;
+}
+
+.article-author {
+    position: absolute;
+
+    right: 20px;
+    bottom: 15px;
+
+    max-width: 450px;
+
+    margin: 0;
+
+    color: #77736D;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    text-align: right;
+}
