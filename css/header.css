@@ -2,22 +2,27 @@
    HEADER
 ========================== */
 
-.header{
-
-    position:absolute;
-
-    top:25px;
-    left:40px;
-    right:40px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    z-index:10;
-
+#site-header {
+    position: relative;
+    width: 100%;
+    height: 125px;
+    background: #12120F;
 }
 
+
+.header {
+    position: absolute;
+
+    top: 25px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 10;
+}
 
 /* ==========================
    LOGO

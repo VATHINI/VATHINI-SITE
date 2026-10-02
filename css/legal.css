@@ -1,0 +1,326 @@
+/* =========================
+   PAGES JURIDIQUES VATHINI
+========================= */
+
+body {
+    margin: 0;
+    background: #FFFDF9;
+    color: #12120F;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.legal-page {
+    width: min(900px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 100px 0 120px;
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.legal-heading {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.legal-category {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #B48A5A;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.legal-heading h1 {
+    margin: 0;
+
+    color: #12120F;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 500;
+
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+}
+
+.legal-title-line {
+    width: 55px;
+    height: 2px;
+
+    margin: 30px auto 24px;
+
+    background: #B48A5A;
+}
+
+.legal-update {
+    margin: 0;
+
+    color: #6E6A65;
+
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+
+/* =========================
+   CONTENU
+========================= */
+
+.legal-content {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.legal-content section {
+    margin-bottom: 65px;
+}
+
+.legal-content h2 {
+    margin: 0 0 25px;
+
+    color: #12120F;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    letter-spacing: 0.01em;
+}
+
+.legal-content h2 span {
+    margin-right: 12px;
+    color: #B48A5A;
+}
+
+.legal-content h3 {
+    margin: 32px 0 15px;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.legal-content p {
+    margin: 0 0 18px;
+}
+
+.legal-content ul {
+    margin: 18px 0 25px;
+    padding-left: 22px;
+}
+
+.legal-content li {
+    margin-bottom: 8px;
+}
+
+.legal-content strong {
+    font-weight: 600;
+}
+
+.legal-content a {
+    color: #12120F;
+
+    text-decoration-color: #B48A5A;
+    text-underline-offset: 4px;
+
+    transition: color 0.25s ease;
+}
+
+.legal-content a:hover {
+    color: #B48A5A;
+}
+
+
+/* =========================
+   TABLEAUX
+========================= */
+
+.legal-content table {
+    width: 100%;
+
+    margin: 30px 0;
+
+    border-collapse: collapse;
+}
+
+.legal-content th,
+.legal-content td {
+    padding: 15px;
+
+    border-bottom: 1px solid rgba(18, 18, 15, 0.15);
+
+    text-align: left;
+    vertical-align: top;
+}
+
+.legal-content th {
+    color: #B48A5A;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .legal-page {
+        width: calc(100% - 40px);
+        padding: 140px 0 80px;
+    }
+
+    .legal-heading {
+        margin-bottom: 60px;
+    }
+
+    .legal-content {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
+    .legal-content section {
+        margin-bottom: 50px;
+    }
+
+    .legal-content table {
+        display: block;
+        overflow-x: auto;
+    }
+
+}
+
+/* =========================
+   INFORMATIONS ADMINISTRATIVES
+========================= */
+
+.legal-info-block {
+    margin: 32px 0;
+    padding: 5px 0 5px 25px;
+
+    border-left: 2px solid #B48A5A;
+}
+
+.legal-info-block p {
+    margin-bottom: 18px;
+}
+
+.legal-info-block p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================
+   TARIFS
+========================= */
+
+.legal-note {
+    margin-top: 20px;
+    color: #6E6A65;
+    font-size: 0.85rem;
+}
+
+
+/* FORMULE DE CALCUL */
+
+.legal-formula {
+    margin: 30px 0 40px;
+    padding: 25px 30px;
+
+    border-left: 2px solid #B48A5A;
+    background: rgba(180, 138, 90, 0.06);
+}
+
+.legal-formula > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #B48A5A;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+}
+
+.legal-formula p {
+    margin: 0;
+
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.legal-formula strong {
+    margin: 0 8px;
+    color: #B48A5A;
+}
+
+
+/* TARIF HORAIRE */
+
+.legal-price-highlight {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    margin: 25px 0 30px;
+}
+
+.legal-price-highlight strong {
+    color: #B48A5A;
+
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.legal-price-highlight span {
+    color: #6E6A65;
+
+    font-size: 0.9rem;
+}
+
+/* =========================
+   AVERTISSEMENT SÉCURITÉ
+========================= */
+
+.legal-warning {
+    margin: 30px 0;
+    padding: 22px 25px;
+
+    border-left: 3px solid #B48A5A;
+    background: rgba(180, 138, 90, 0.07);
+}
+
+.legal-warning > strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #B48A5A;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.legal-warning p {
+    margin: 0;
+}

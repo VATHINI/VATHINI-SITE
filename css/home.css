@@ -148,6 +148,8 @@ body.lock-scroll{
 
     transition:opacity 1s ease;
 
+    margin-top:-5%;
+
 }
 
 .home.show{
