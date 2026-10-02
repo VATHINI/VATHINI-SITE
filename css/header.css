@@ -1,0 +1,204 @@
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+
+    position:absolute;
+
+    top:25px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:10;
+
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo{
+
+    display:flex;
+    align-items:center;
+    margin-right:40px;
+}
+
+
+.brandmark{
+
+    height:75px;
+
+    width:auto;
+
+    transition:.3s ease;
+
+}
+
+.header-logo a{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.header-logo a:hover .brandmark{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu{
+
+    position:static;
+
+    transform:none;
+
+}
+
+
+.menu{
+
+    background:#FFFDF9;
+
+    border-radius:999px;
+
+    padding:0 40px;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+.menu a{
+
+    position:relative;
+
+    padding:0 28px;
+
+    text-decoration:none;
+
+    color:#12120f;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.menu a:not(:last-child)::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+    height:20px;
+
+    background:#12120f;
+
+}
+
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:-6px;
+
+    height:1px;
+
+    background:#B48A5A;
+
+    transform:scaleX(0);
+
+    transition:.3s;
+
+}
+
+
+.menu a:hover{
+
+    color:#B48A5A;
+
+}
+
+
+.menu a:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+
+/* ==========================
+   SOCIALS
+========================== */
+
+.header-socials{
+
+    margin-left:auto;
+
+}
+
+
+.socials{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#FFFDF9;
+
+    font-size:28px;
+
+}
+
+.socials a{
+
+    color:#FFFDF9;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    color:#B48A5A;
+
+}

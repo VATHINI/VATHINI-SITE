@@ -1,0 +1,248 @@
+/* =========================
+   FOOTER VATHINI
+========================= */
+
+.site-footer {
+    width: 100%;
+    background: #12120F;
+    color: #FFFDF9;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.footer-inner {
+    width: min(1200px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 80px 0 32px;
+}
+
+
+/* =========================
+   IDENTITÉ
+========================= */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand a {
+    display: inline-flex;
+}
+
+.footer-logotype {
+    display: block;
+    width: clamp(180px, 22vw, 300px);
+    height: auto;
+}
+
+.footer-signature {
+    margin: 24px 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 253, 249, 0.65);
+}
+
+
+/* =========================
+   SÉPARATEURS
+========================= */
+
+.footer-separator {
+    width: 100%;
+    height: 1px;
+    margin: 55px 0;
+    background: rgba(255, 253, 249, 0.15);
+}
+
+.footer-separator-bronze {
+    margin: 38px 0 25px;
+    background: rgba(180, 138, 90, 0.65);
+}
+
+
+/* =========================
+   COLONNES
+========================= */
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    margin: 0 0 25px;
+    color: #B48A5A;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.footer-column a {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    margin-bottom: 13px;
+
+    color: rgba(255, 253, 249, 0.78);
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-column a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    width: 0;
+    height: 1px;
+
+    background: #B48A5A;
+    transition: width 0.25s ease;
+}
+
+.footer-column a:hover {
+    color: #B48A5A;
+    transform: translateX(4px);
+}
+
+.footer-column a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   RÉSEAUX SOCIAUX
+========================= */
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px 45px;
+}
+
+.footer-socials a {
+    position: relative;
+
+    color: rgba(255, 253, 249, 0.75);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.footer-socials a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: #B48A5A;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.footer-socials a:hover {
+    color: #B48A5A;
+}
+
+.footer-socials a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    color: rgba(255, 253, 249, 0.45);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .footer-inner {
+        width: min(100% - 40px, 1200px);
+        padding-top: 60px;
+    }
+
+    .footer-signature {
+        max-width: 420px;
+        font-size: 0.72rem;
+        line-height: 1.7;
+    }
+
+    .footer-separator {
+        margin: 42px 0;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 100%;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column a:hover {
+        transform: none;
+    }
+
+    .footer-socials {
+        gap: 20px 28px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+}
