@@ -1,0 +1,1263 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #12120F;
+
+    color: #12120F;
+
+    font-family: 'Montserrat', sans-serif;
+
+    padding-top: 1px;
+
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+
+    position: absolute;
+
+    top: 25px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo {
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 40px;
+
+}
+
+
+.brandmark {
+
+    height: 75px;
+    width: auto;
+
+    transition: .3s ease;
+
+}
+
+
+.header-logo a {
+
+    display: flex;
+    align-items: center;
+
+}
+
+
+.header-logo a:hover .brandmark {
+
+    transform: scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu {
+
+    position: static;
+
+    transform: none;
+
+}
+
+
+.menu {
+
+    height: 48px;
+
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+
+    background: #FFFDF9;
+
+    border-radius: 999px;
+
+}
+
+
+.menu a {
+
+    position: relative;
+
+    padding: 0 28px;
+
+    color: #12120F;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+.menu a:not(:last-child)::before {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width: 1px;
+    height: 20px;
+
+    background: #12120F;
+
+    transform: translateY(-50%);
+
+}
+
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: -6px;
+
+    height: 1px;
+
+    background: #B48A5A;
+
+    transform: scaleX(0);
+
+    transition: .3s;
+
+}
+
+
+.menu a:hover {
+
+    color: #B48A5A;
+
+}
+
+
+.menu a:hover::after {
+
+    transform: scaleX(1);
+
+}
+
+
+/* ==========================
+   RÉSEAUX
+========================== */
+
+.header-socials {
+
+    margin-left: auto;
+
+}
+
+
+.socials {
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 28px;
+
+}
+
+
+.socials a {
+
+    display: flex;
+    align-items: center;
+
+    color: #FFFDF9;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+
+.socials a:hover {
+
+    color: #B48A5A;
+
+}
+
+/* ==========================
+   FICHE PRODUIT
+========================== */
+
+.product-sheet {
+
+    position: relative;
+
+    width: min(1120px, calc(100% - 80px));
+
+    min-height: 535px;
+
+    margin: 0 auto;
+
+    padding: 25px 35px 35px;
+
+    border: 5px solid #B48A5A;
+
+}
+
+
+/* IMPORTANT :
+   permet réellement à hidden de masquer la fiche */
+
+.product-sheet[hidden] {
+
+    display: none;
+
+}
+
+
+/* ==========================
+   RETOUR
+========================== */
+
+.product-back {
+
+    position: absolute;
+
+    top: 18px;
+    right: 35px;
+
+    padding: 0;
+
+    background: transparent;
+    border: none;
+
+    color: #12120F;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.product-back:hover {
+
+    color: #B48A5A;
+
+}
+
+
+/* ==========================
+   TITRE
+========================== */
+
+.product-sheet-heading {
+
+    text-align: center;
+
+}
+
+
+.product-sheet-heading h1 {
+
+    margin-bottom: 4px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 38px;
+
+    line-height: 1.1;
+
+}
+
+
+.product-sheet-heading p {
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================
+   CONTENU
+========================== */
+
+.product-sheet-content {
+
+    margin-top: 38px;
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+
+    border: 3px solid #12120F;
+    border-radius: 17px;
+
+    overflow: hidden;
+
+}
+
+
+/* ==========================
+   GALERIE IMAGE
+========================== */
+
+.product-gallery {
+
+    min-height: 330px;
+
+    padding: 25px 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.product-gallery-main {
+
+    height: 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.product-gallery-main img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+
+}
+
+
+.product-gallery-main img:hover {
+
+    transform: scale(1.025);
+
+}
+
+
+/* ==========================
+   NAVIGATION GALERIE
+========================== */
+
+.product-gallery-navigation {
+
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.product-gallery-dots {
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.gallery-dot {
+
+    flex: 1;
+
+    max-width: 52px;
+
+    height: 3px;
+
+    padding: 0;
+
+    background: #D5D2CC;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.gallery-dot.active {
+
+    background: #77746E;
+
+}
+
+
+.gallery-dot:hover {
+
+    background: #B48A5A;
+
+}
+
+
+.gallery-next {
+
+    width: 43px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: 2px solid #B48A5A;
+    border-radius: 999px;
+
+    color: #B48A5A;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.gallery-next:hover {
+
+    background: #B48A5A;
+
+    color: #FFFDF9;
+
+}
+
+
+/* ==========================
+   INFORMATIONS
+========================== */
+
+.product-sheet-info {
+
+    padding: 28px 30px 24px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.product-sheet-top {
+
+    display: grid;
+
+    grid-template-columns: 1fr auto auto;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+
+.product-sheet-name h2 {
+
+    margin-bottom: 7px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 24px;
+    font-weight: 400;
+
+}
+
+
+.sheet-price {
+
+    font-size: 19px;
+    font-weight: 700;
+
+}
+
+
+.sheet-separator {
+
+    width: 2px;
+    height: 60px;
+
+    background: #77746E;
+
+}
+
+
+.sheet-pieces {
+
+    white-space: nowrap;
+
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+
+/* ==========================
+   DESCRIPTION
+========================== */
+
+.product-description {
+
+    margin-top: 24px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 1.55;
+
+}
+
+
+.product-description p + p {
+
+    margin-top: 4px;
+
+}
+
+
+.product-description ul {
+
+    margin-top: 5px;
+    padding-left: 24px;
+
+}
+
+
+/* ==========================
+   PANIER
+========================== */
+
+.sheet-cart-button {
+
+    min-width: 165px;
+
+    margin-top: auto;
+    margin-left: auto;
+
+    padding: 8px 18px;
+
+    background: transparent;
+
+    border: 2px solid #B48A5A;
+    border-radius: 999px;
+
+    color: #12120F;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.sheet-cart-button:hover {
+
+    background: #B48A5A;
+
+    color: #FFFDF9;
+
+}
+
+/* ==========================
+   PAGE UNIVERS
+========================== */
+
+.univers-page {
+
+    min-height: calc(100vh - 140px);
+
+    margin-top: 178px;
+    margin-right: 40px;
+    margin-left: 40px;
+
+    padding: 70px 0 80px;
+
+    background: #FFFDF9;
+
+}
+
+
+/* ==========================
+   CONTENEUR
+========================== */
+
+.univers-container {
+
+    position: relative;
+
+    width: min(1120px, calc(100% - 80px));
+
+    min-height: 535px;
+
+    margin: 0 auto;
+
+    padding: 25px 35px 35px;
+
+    border: 5px solid #B48A5A;
+
+}
+
+
+/* ==========================
+   RETOUR
+========================== */
+
+.back-link {
+
+    position: absolute;
+
+    top: 18px;
+    right: 35px;
+
+    color: #12120F;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+
+    transition: .3s ease;
+
+}
+
+
+.back-link:hover {
+
+    color: #B48A5A;
+
+}
+
+
+/* ==========================
+   TITRE UNIVERS
+========================== */
+
+.univers-heading {
+
+    text-align: center;
+
+}
+
+
+.univers-heading h1 {
+
+    margin-bottom: 4px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 38px;
+    line-height: 1.1;
+
+}
+
+
+.univers-heading p {
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================
+   GRILLE PRODUITS
+========================== */
+
+.products-grid {
+
+    margin-top: 38px;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(235px, 235px)
+    );
+
+    gap: 30px;
+
+}
+
+
+/* ==========================
+   CARTE PRODUIT
+========================== */
+
+.product-card {
+
+    width: 235px;
+    min-height: 395px;
+
+    padding: 15px 16px 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #FFFDF9;
+
+    border: 3px solid #12120F;
+    border-radius: 17px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 22px rgba(18, 18, 15, .10);
+
+}
+
+
+/* ==========================
+   IMAGE PRODUIT
+========================== */
+
+.product-image-link {
+
+    width: 100%;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.product-image {
+
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.product-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform .4s ease;
+
+}
+
+
+.product-image-link:hover .product-image img {
+    transform: scale(1.035);
+}
+
+
+/* ==========================
+   NOMBRE DE PIÈCES
+========================== */
+
+.product-pieces {
+
+    position: relative;
+
+    margin: 8px 5px 0;
+
+    padding-top: 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 500;
+
+}
+
+
+.product-pieces::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background: #77746E;
+
+}
+
+
+.product-pieces span::before {
+
+    content: "|";
+
+    margin-right: 8px;
+
+}
+
+
+.product-pieces span::after {
+
+    content: "|";
+
+    margin-left: 8px;
+
+}
+
+
+/* ==========================
+   INFORMATIONS
+========================== */
+
+.product-info {
+
+    margin: 27px 7px 0;
+
+}
+
+
+.product-info h2 {
+
+    margin-bottom: 6px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+
+.product-price {
+
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+/* ==========================
+   TYPE DE PRODUIT
+========================== */
+
+.product-type,
+.sheet-product-type {
+
+    margin-top: 4px;
+
+    color: #77746E;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: .6px;
+
+}
+
+
+/* ==========================
+   INFORMATION PRODUIT NUMÉRIQUE
+========================== */
+
+.digital-product-notice {
+
+    margin-top: 14px !important;
+
+    font-weight: 600;
+
+}
+
+
+.pieces-not-included {
+
+    margin-top: 14px !important;
+
+    color: #B48A5A;
+
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+
+/* ==========================
+   ACTIONS PRODUIT
+========================== */
+
+.product-actions {
+
+    margin-top: auto;
+    padding-top: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+/* ==========================
+   VOIR LE PRODUIT
+========================== */
+
+.product-details-button {
+
+    width: 100%;
+
+    padding: 7px 15px;
+
+    background: transparent;
+
+    color: #77746E;
+
+    border: 2px solid #77746E;
+    border-radius: 999px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.product-details-button:hover {
+
+    background: #77746E;
+
+    color: #FFFDF9;
+
+}
+
+
+/* ==========================
+   AJOUTER AU PANIER
+========================== */
+
+.add-cart-button {
+
+    width: 100%;
+
+    padding: 8px 15px;
+
+    background: transparent;
+
+    color: #12120F;
+
+    border: 2px solid #B48A5A;
+    border-radius: 999px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+
+}
+
+
+.add-cart-button:hover {
+
+    background: #B48A5A;
+
+    color: #FFFDF9;
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 900px) {
+
+    .univers-page {
+
+        margin-left: 20px;
+        margin-right: 20px;
+
+        padding-top: 50px;
+
+    }
+
+
+    .univers-container {
+
+        width: calc(100% - 40px);
+
+        padding: 60px 25px 35px;
+
+    }
+
+
+    .products-grid {
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(210px, 1fr));
+
+    }
+
+
+    .product-card {
+
+        width: 100%;
+
+        max-width: 260px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .univers-container {
+
+        width: calc(100% - 24px);
+
+        padding-left: 18px;
+        padding-right: 18px;
+
+    }
+
+
+    .univers-heading h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .univers-heading p br {
+
+        display: none;
+
+    }
+
+
+    .products-grid {
+
+        grid-template-columns: 1fr;
+
+        justify-items: center;
+
+    }
+
+}
+
+/* ==========================
+   ZOOM IMAGE PRODUIT
+========================== */
+
+.product-zoom-trigger {
+    cursor: zoom-in;
+}
+
+
+/* FOND */
+
+.image-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px;
+
+    background: rgba(18, 18, 15, .92);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+}
+
+
+/* LIGHTBOX OUVERTE */
+
+.image-lightbox.active {
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+/* IMAGE AGRANDIE */
+
+.lightbox-image {
+
+    max-width: 90vw;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    transform: scale(.96);
+
+    transition: transform .3s ease;
+
+}
+
+
+.image-lightbox.active .lightbox-image {
+
+    transform: scale(1);
+
+}
+
+
+/* CROIX */
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 35px;
+    right: 45px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #FFFDF9;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #FFFDF9;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.lightbox-close:hover {
+
+    border-color: #B48A5A;
+
+    color: #B48A5A;
+
+    transform: rotate(90deg);
+
+}

@@ -1,0 +1,591 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:#12120F;
+
+    color:#12120F;
+
+    font-family:'Montserrat', sans-serif;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+    position:absolute;
+
+    top:25px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:100;
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.header-logo{
+    display:flex;
+    align-items:center;
+    margin-right:40px;
+}
+
+.brandmark{
+
+    height:75px;
+    width:auto;
+
+    transition:.3s ease;
+
+}
+
+.header-logo a{
+
+    display:flex;
+    align-items:center;
+
+}
+
+.header-logo a:hover .brandmark{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   MENU
+========================== */
+
+.header-menu{
+
+    position:static;
+    transform:none;
+
+}
+
+.menu{
+
+    background:#FFFDF9;
+
+    border-radius:999px;
+
+    padding:0 40px;
+
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+}
+
+.menu a{
+
+    position:relative;
+
+    padding:0 28px;
+
+    text-decoration:none;
+
+    color:#12120F;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.menu a:not(:last-child)::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+    height:20px;
+
+    background:#12120F;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:-6px;
+
+    height:1px;
+
+    background:#B48A5A;
+
+    transform:scaleX(0);
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    color:#B48A5A;
+
+}
+
+.menu a:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+/* ==========================
+   SOCIALS
+========================== */
+
+.header-socials{
+    margin-left:auto;
+}
+
+.socials{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-size:28px;
+
+}
+
+.socials a{
+
+    color:#FFFDF9;
+
+    text-decoration:none;
+
+    display:flex;
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    color:#B48A5A;
+
+}
+
+/* ==========================
+   PAGE GALERIE
+========================== */
+
+.galerie {
+    min-height: 100vh;
+
+    padding-top: 179px;
+
+    background: #12120F;
+}
+
+
+/* ==========================
+   INTRODUCTION
+========================== */
+
+.galerie-intro {
+    position: relative;
+
+    width: calc(100% - 80px);
+    min-height: 250px;
+
+    margin: 0 auto;
+
+    padding: 42px 45px;
+
+    background: #FFFDF9;
+
+    color: #12120F;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+
+.galerie-intro-text {
+    max-width: 620px;
+}
+
+
+.galerie-intro h1 {
+    margin-bottom: 14px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+.galerie-intro p {
+    max-width: 372px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-align: justify;
+}
+
+
+/* ==========================
+   CONSTRUCTION DÉCORATIVE
+========================== */
+
+.galerie-decoration {
+    position: absolute;
+
+    right: 30px;
+    bottom: 12px;
+
+    width: 150px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* ==========================
+   LISTE DES UNIVERS
+========================== */
+
+.univers-list {
+
+    width: calc(100% - 80px);
+
+    margin: 40px auto 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+
+}
+
+/* ==========================
+   CARTE UNIVERS
+========================== */
+
+.univers-card {
+
+    position: relative;
+
+    min-height: 165px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    overflow: hidden;
+
+    border: 5px solid #B48A5A;
+
+    background: #FFFDF9;
+
+    color: #12120F;
+    text-decoration: none;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+.univers-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+
+.univers-content h2 {
+
+    margin-bottom: 3px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 700;
+
+    line-height: 1.05;
+
+}
+
+
+.univers-content p {
+
+    max-width: 390px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================
+   VISUEL UNIVERS
+========================== */
+
+.univers-visual {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.univers-visual img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .6s ease;
+
+}
+
+
+/* ==========================
+   FONDU IMAGE / TEXTE
+========================== */
+
+.univers-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: 0;
+    bottom: 0;
+
+    left: -2px;
+
+    width: 150px;
+
+    background: linear-gradient(
+        90deg,
+        #FFFDF9 0%,
+        rgba(255, 253, 249, .92) 20%,
+        rgba(255, 253, 249, .55) 55%,
+        rgba(255, 253, 249, 0) 100%
+    );
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================
+   INTERACTION
+========================== */
+
+.univers-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(18, 18, 15, .10);
+
+}
+
+
+.univers-card:hover .univers-visual img {
+
+    transform: scale(1.025);
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 900px) {
+
+    .galerie {
+
+        min-height: calc(100vh - 110px);
+
+        margin-top: 110px;
+
+        padding-top: 70px;
+        padding-bottom: 80px;
+
+        background: #FFFDF9;
+
+    }
+
+
+    .univers-list {
+
+        width: calc(100% - 40px);
+
+    }
+
+
+    .univers-card {
+
+        grid-template-columns: 1fr;
+
+        min-height: 300px;
+
+    }
+
+
+    .univers-content {
+
+        min-height: 145px;
+
+        padding: 25px;
+
+    }
+
+
+    .univers-visual {
+
+        min-height: 150px;
+
+    }
+
+
+    .univers-visual::before {
+
+        top: -2px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+
+        width: 100%;
+        height: 70px;
+
+        background: linear-gradient(
+            180deg,
+            #FFFDF9 0%,
+            rgba(255, 253, 249, .7) 45%,
+            rgba(255, 253, 249, 0) 100%
+        );
+
+    }
+
+
+    .galerie-intro {
+
+        width: calc(100% - 40px);
+
+        margin-bottom: 55px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .galerie-intro h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .galerie-intro p {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+/* ==========================
+   PETITS ÉCRANS
+========================== */
+
+@media (max-width: 600px) {
+
+    .galerie-intro {
+
+        flex-direction: column;
+
+        gap: 18px;
+
+    }
+
+
+    .galerie-intro p {
+
+        max-width: 100%;
+
+    }
+
+}
