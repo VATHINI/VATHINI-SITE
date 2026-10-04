@@ -3,17 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("VATHINI JS chargé");
 
 
-    const body = document.body;
-    const intro = document.querySelector('.intro');
-    const home = document.querySelector('.home');
-    const cta = document.querySelector('.cta-project');
+const body = document.body;
+const intro = document.querySelector('.intro');
+const home = document.querySelector('.home');
+const cta = document.querySelector('.cta-project');
 
+const header = document.querySelector('.home-header');
+const footer = document.querySelector('.home-footer');
 
     let introFinished = false;
 
 
     const introPlayed = sessionStorage.getItem("introPlayed");
-
 
 
     // ==========================
@@ -60,30 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================
 
 
-    if (introPlayed) {
+if (introPlayed) {
 
+    body.classList.remove("lock-scroll");
 
-        body.classList.remove("lock-scroll");
+    intro.style.display = "none";
 
+    home.classList.add("show");
+    header.classList.add("show");
+    footer.classList.add("show");
 
-        intro.style.display = "none";
+    introFinished = true;
 
-        home.classList.add("show");
-
-
-        introFinished = true;
-
-
-        if(cta){
-
-            observer.observe(cta);
-
-        }
-
-
-        return;
-
+    if (cta) {
+        observer.observe(cta);
     }
+
+    return;
+}
 
 
 
@@ -149,10 +144,12 @@ setTimeout(() => {
     intro.style.display = 'none';
 
     home.classList.add('show');
+    header.classList.add('show');
+    footer.classList.add('show');
 
     introFinished = true;
 
-    if(cta){
+    if (cta) {
         observer.observe(cta);
     }
 

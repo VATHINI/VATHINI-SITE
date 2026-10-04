@@ -28,30 +28,33 @@
    LOGO
 ========================== */
 
-.header-logo{
+.header-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
 
-    display:flex;
-    align-items:center;
-    margin-right:40px;
+    position: relative;
+    z-index: 50;
 }
 
+.header-logo a {
+    display: flex;
+    align-items: center;
 
-.brandmark{
-
-    height:75px;
-
-    width:auto;
-
-    transition:.3s ease;
-
+    position: relative;
+    z-index: 50;
 }
 
-.header-logo a{
+.brandmark {
+    height: 75px;
+    width: auto;
 
-    display:flex;
+    display: block;
 
-    align-items:center;
+    position: relative;
+    z-index: 50;
 
+    transition: .3s ease;
 }
 
 .header-logo a:hover .brandmark{
@@ -206,4 +209,41 @@
 
     color:#B48A5A;
 
+}
+
+/* ==========================
+   APPARITION HEADER / FOOTER
+========================== */
+
+#site-header {
+    animation: headerReveal 0.5s ease-out both;
+}
+#site-footer {
+    animation: footerReveal 0.5s ease-out both;
+}
+
+@keyframes headerReveal {
+
+    from {
+        opacity: 0;
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes footerReveal {
+
+    from {
+        opacity: 0;
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
