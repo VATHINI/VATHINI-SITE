@@ -33,7 +33,12 @@ const VATHINI_PRODUCTS = {
             "images/boite-vathini-2.png",
             "images/boite-vathini-3.png",
             "images/boite-vathini-4.png"
-        ]
+        ],
+
+        dimensions: "25,6 × 25,6 × 8,6 cm",
+        weight: "1,41 kg",
+        partsPrice: "206 € environ",
+        partsPriceDate: "05/10/2026"
 
     }
 

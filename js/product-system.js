@@ -116,6 +116,17 @@ function loadProduct(productId) {
         li.textContent = item;
 
         productContents.appendChild(li);
+        document.getElementById("product-dimensions").textContent =
+    product.dimensions;
+
+document.getElementById("product-weight").textContent =
+    product.weight;
+
+document.getElementById("product-parts-price").textContent =
+    product.partsPrice;
+
+document.getElementById("product-parts-price-date").textContent =
+    product.partsPriceDate;
 
     });
 
