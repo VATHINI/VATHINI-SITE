@@ -174,38 +174,6 @@ body {
     text-transform: uppercase;
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 700px) {
-
-    .legal-page {
-        width: calc(100% - 40px);
-        padding: 140px 0 80px;
-    }
-
-    .legal-heading {
-        margin-bottom: 60px;
-    }
-
-    .legal-content {
-        font-size: 0.9rem;
-        line-height: 1.75;
-    }
-
-    .legal-content section {
-        margin-bottom: 50px;
-    }
-
-    .legal-content table {
-        display: block;
-        overflow-x: auto;
-    }
-
-}
-
 /* =========================
    INFORMATIONS ADMINISTRATIVES
 ========================= */

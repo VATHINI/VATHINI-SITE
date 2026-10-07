@@ -1,0 +1,1882 @@
+/* ==========================
+   RESPONSIVE — ACCUEIL
+========================== */
+
+/* Ligne des valeurs */
+.value-line {
+    width: min(999px, 90vw);
+}
+
+/* Image centrale */
+.hero-image {
+    width: min(650px, 85vw);
+    height: auto;
+    aspect-ratio: 650 / 420;
+}
+
+/* Galerie */
+.gallery-grid {
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.gallery-card {
+    width: min(300px, 80vw);
+}
+
+.gallery-title h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+/* CTA */
+.cta-content {
+    padding-top: clamp(100px, 12vw, 180px);
+    padding-left: clamp(20px, 5vw, 70px);
+    padding-right: 20px;
+}
+
+.cta-content h2 {
+    font-size: clamp(3rem, 8vw, 7rem);
+}
+
+.cta-content p {
+    font-size: clamp(1rem, 2vw, 20px);
+    max-width: min(725px, 90vw);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+    .intro {
+        padding-inline: 8%;
+    }
+
+    .tagline {
+        width: 85%;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .brand-intro {
+        padding: 80px 20px;
+    }
+
+    .brand-content p {
+        font-size: clamp(1rem, 4vw, 20px);
+    }
+
+    .values {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-align: center;
+        line-height: 2;
+    }
+
+    .values span {
+        padding: 0 6px;
+    }
+
+    .gallery-grid {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .gallery-card {
+        height: min(700px, 120vw);
+    }
+
+    .cta-content h2 {
+        white-space: normal;
+    }
+
+    .cta-content p {
+        letter-spacing: 2px;
+        text-indent: 0;
+    }
+
+    .cta-button {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 40px;
+        white-space: nowrap;
+    }
+
+}
+
+/* ==========================
+   CENTRAGE RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    /* INTRO */
+    .intro {
+        padding-left: 0;
+        padding-inline: 8%;
+        justify-content: center;
+    }
+
+    .intro-content {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* HERO */
+    .hero-home {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .main-logo {
+        display: block;
+        margin-inline: auto;
+    }
+
+    @media (max-width: 768px) {
+
+    .hero-image {
+        width: min(650px, 85vw);
+        height: auto;
+        aspect-ratio: 650 / 420;
+    }
+
+}
+
+    /* BRAND INTRO */
+    .brand-intro {
+        width: 100%;
+        padding-inline: 7%;
+    }
+
+    .brand-content {
+        width: 100%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .brand-content p {
+        width: 100%;
+        max-width: 700px;
+        margin-inline: auto;
+    }
+
+    /* VALEURS */
+    .brand-values {
+        width: 100%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .value-line {
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .values {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* GALERIE */
+    .gallery-grid {
+        width: 100%;
+        margin-inline: auto;
+        align-items: center;
+    }
+
+    /* CTA */
+    .cta-content {
+        width: 100%;
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+}
+
+/* ==========================
+   RESPONSIVE — HEADER
+========================== */
+
+@media (max-width: 768px) {
+
+    #site-header {
+        height: 195px;
+    }
+
+    .header {
+        top: 15px;
+        left: 5%;
+        right: 5%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    /* ==========================
+       LOGO
+    ========================== */
+
+    .header-logo {
+        margin-right: 0;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-logo a {
+        justify-content: center;
+    }
+
+    .brandmark {
+        height: clamp(55px, 15vw, 70px);
+        width: auto;
+    }
+
+    /* ==========================
+       MENU
+    ========================== */
+
+    .header-menu {
+        width: 100%;
+    }
+
+    .menu {
+        width: 100%;
+        height: 44px;
+
+        padding: 0 8px;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu a {
+        flex: 1;
+
+        padding: 0 5px;
+
+        text-align: center;
+
+        font-size: clamp(9px, 2.7vw, 13px);
+    }
+
+    .menu a:not(:last-child)::before {
+        right: 0;
+        height: 18px;
+    }
+
+    .menu a::after {
+        left: 10%;
+        right: 10%;
+    }
+
+    /* ==========================
+       RÉSEAUX
+    ========================== */
+
+    .header-socials {
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .socials {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        font-size: clamp(17px, 5vw, 21px);
+    }
+}
+
+/* ==========================
+   RESPONSIVE — ACTUALITÉS
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       PAGE
+    ========================== */
+
+    .actualites {
+        padding-top: 50px;
+    }
+
+
+    /* ==========================
+       INTRODUCTION
+    ========================== */
+
+    .actualites-intro {
+        width: 90%;
+
+        min-height: auto;
+
+        padding: 35px 25px 220px;
+
+        display: block;
+
+        text-align: center;
+    }
+
+    .actualites-intro-text {
+        max-width: 100%;
+    }
+
+    .actualites-intro h1 {
+        font-size: clamp(28px, 8vw, 38px);
+
+        line-height: 1.05;
+
+        text-align: center;
+    }
+
+    .actualites-intro p {
+        max-width: 100%;
+
+        font-size: clamp(13px, 3.5vw, 15px);
+
+        text-align: justify;
+    }
+
+
+    /* ==========================
+       DÉCORATION
+    ========================== */
+
+    .actualites-decoration {
+        right: 50%;
+        bottom: 10px;
+
+        width: min(250px, 70%);
+
+        transform: translateX(50%);
+    }
+
+
+    /* ==========================
+       ZONE ARTICLES
+    ========================== */
+
+    .actualites-content {
+        width: 90%;
+
+        min-height: auto;
+
+        padding: 70px 20px 50px;
+
+        margin-top: 8px;
+    }
+
+
+    /* ==========================
+       GRILLE
+    ========================== */
+
+    .news-grid {
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 70px;
+
+        width: 100%;
+    }
+
+
+    /* ==========================
+       CARTES
+    ========================== */
+
+    .news-card {
+        width: 100%;
+
+        min-height: 465px;
+
+        padding: 35px 25px 40px;
+    }
+
+    .news-card h2 {
+        min-height: auto;
+
+        margin-bottom: 20px;
+
+        font-size: clamp(18px, 5vw, 21px);
+
+        text-align: center;
+    }
+
+    .news-card img {
+        width: min(210px, 70%);
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+    }
+
+
+    /* ==========================
+       DATE
+    ========================== */
+
+    .news-date {
+        margin: 8px 0 25px;
+
+        font-size: 13px;
+    }
+
+
+    /* ==========================
+       AUTEUR
+    ========================== */
+
+    .news-author {
+        right: 15px;
+        bottom: 12px;
+
+        max-width: 80%;
+
+        font-size: 8px;
+    }
+
+
+    /* ==========================
+       MESSAGE BAS DE PAGE
+    ========================== */
+
+    .news-coming {
+        width: fit-content;
+        max-width: 90%;
+
+        text-align: center;
+
+        font-size: 11px;
+    }
+
+
+    /* ==========================
+       ARTICLE OUVERT
+    ========================== */
+
+    .article-overlay {
+        padding: 60px 15px;
+    }
+
+    .article-open {
+        width: 100%;
+
+        padding: 55px 22px 60px;
+    }
+
+    .article-open h2 {
+        margin-bottom: 25px;
+
+        font-size: clamp(18px, 5vw, 22px);
+
+        text-align: center;
+    }
+
+    .article-date {
+        margin: 0 10px 30px;
+
+        font-size: 13px;
+    }
+
+
+    /* ==========================
+       CONTENU ARTICLE
+    ========================== */
+
+    .article-body {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .article-text p,
+    .article-footer-text p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .article-image {
+        width: min(100%, 350px);
+
+        margin-inline: auto;
+    }
+
+
+    /* ==========================
+       RETOUR
+    ========================== */
+
+    .article-close {
+        top: 20px;
+        right: 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* ==========================
+       SCOTCHS
+    ========================== */
+
+    .article-tape {
+        width: 24px;
+        height: 60px;
+    }
+
+
+    /* ==========================
+       AUTEUR ARTICLE
+    ========================== */
+
+    .article-author {
+        right: 15px;
+        bottom: 12px;
+
+        max-width: 85%;
+
+        font-size: 9px;
+    }
+}
+
+/* ==========================
+   RESPONSIVE — GALERIE
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       PAGE
+    ========================== */
+
+    .galerie {
+        min-height: 100vh;
+
+        margin-top: 0;
+        padding-top: 50px;
+        padding-bottom: 60px;
+
+        background: #12120F;
+    }
+
+
+    /* ==========================
+       INTRODUCTION
+    ========================== */
+
+    .galerie-intro {
+        width: 90%;
+
+        min-height: auto;
+
+        margin: 0 auto 35px;
+
+        padding: 35px 25px 210px;
+
+        display: block;
+
+        text-align: center;
+    }
+
+    .galerie-intro-text {
+        max-width: 100%;
+    }
+
+    .galerie-intro h1 {
+        margin-bottom: 15px;
+
+        font-size: clamp(28px, 8vw, 38px);
+
+        line-height: 1.05;
+
+        text-align: center;
+    }
+
+    .galerie-intro p {
+        max-width: 100%;
+
+        font-size: clamp(13px, 3.5vw, 15px);
+
+        text-align: justify;
+    }
+
+
+    /* ==========================
+       DÉCORATION
+    ========================== */
+
+    .galerie-decoration {
+        right: 50%;
+        bottom: 10px;
+
+        width: min(145px, 42%);
+
+        transform: translateX(50%);
+    }
+
+
+    /* ==========================
+       LISTE DES UNIVERS
+    ========================== */
+
+    .univers-list {
+        width: 90%;
+
+        margin-top: 0;
+
+        gap: 28px;
+    }
+
+
+    /* ==========================
+       CARTES UNIVERS
+    ========================== */
+
+    .univers-card {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+    .univers-content {
+        min-height: auto;
+
+        padding: 25px 22px;
+    }
+
+    .univers-content h2 {
+        font-size: clamp(25px, 7vw, 32px);
+    }
+
+    .univers-content p {
+        max-width: 100%;
+
+        font-size: 13px;
+    }
+
+
+    /* ==========================
+       VISUEL
+    ========================== */
+
+    .univers-visual {
+        min-height: clamp(180px, 55vw, 260px);
+    }
+}
+
+/* ==========================
+   RESPONSIVE — MONDE VATHINI
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       PAGE UNIVERS
+    ========================== */
+
+    .univers-page {
+        min-height: 100vh;
+
+        margin: 0 5%;
+
+        padding: 50px 0 60px;
+
+        background: #FFFDF9;
+    }
+
+
+    /* ==========================
+       CONTENEUR UNIVERS
+    ========================== */
+
+    .univers-container {
+        width: 90%;
+
+        min-height: auto;
+
+        margin-inline: auto;
+
+        padding: 60px 20px 35px;
+    }
+
+
+    /* ==========================
+       TITRE
+    ========================== */
+
+    .univers-heading h1 {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .univers-heading p {
+        font-size: clamp(12px, 3.5vw, 14px);
+    }
+
+
+    /* ==========================
+       RETOUR
+    ========================== */
+
+    .back-link {
+        top: 18px;
+        right: 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* ==========================
+       PRODUITS
+    ========================== */
+
+    .products-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        justify-items: stretch;
+
+        gap: 30px;
+    }
+
+
+    /* ==========================
+       CARTE PRODUIT
+    ========================== */
+
+    .product-card {
+        width: 100%;
+        max-width: none;
+
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+
+    /* ==========================
+       IMAGE PRODUIT
+    ========================== */
+
+    .product-image {
+        height: clamp(180px, 55vw, 260px);
+    }
+
+
+    /* ==========================
+       INFORMATIONS PRODUIT
+    ========================== */
+
+    .product-info {
+        margin: 22px 5px 0;
+    }
+
+    .product-info h2 {
+        font-size: clamp(18px, 5vw, 22px);
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+
+
+    /* ==========================
+       ACTIONS
+    ========================== */
+
+    .product-actions {
+        padding-top: 22px;
+    }
+
+    .product-details-button,
+    .add-cart-button {
+        min-height: 40px;
+    }
+
+
+    /* ==========================
+       FICHE PRODUIT OUVERTE
+    ========================== */
+
+    .product-sheet {
+        width: 90%;
+
+        min-height: auto;
+
+        padding: 60px 20px 30px;
+    }
+
+    .product-sheet-heading h1 {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .product-sheet-heading p {
+        font-size: 13px;
+    }
+
+    .product-back {
+        top: 18px;
+        right: 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* ==========================
+       CONTENU FICHE
+    ========================== */
+
+    .product-sheet-content {
+        margin-top: 30px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ==========================
+       GALERIE PRODUIT
+    ========================== */
+
+    .product-gallery {
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+    .product-gallery-main {
+        height: clamp(220px, 65vw, 320px);
+    }
+
+    .product-gallery-navigation {
+        margin-top: 20px;
+    }
+
+
+    /* ==========================
+       INFORMATIONS FICHE
+    ========================== */
+
+    .product-sheet-info {
+        padding: 25px 20px;
+    }
+
+    .product-sheet-top {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+    .product-sheet-name h2 {
+        font-size: clamp(21px, 6vw, 24px);
+    }
+
+    .sheet-price {
+        font-size: 19px;
+    }
+
+    .sheet-separator {
+        width: 60%;
+        height: 2px;
+
+        margin: 5px auto;
+
+        background: #77746E;
+    }
+
+    .sheet-pieces {
+        white-space: normal;
+
+        font-size: 14px;
+    }
+
+
+    /* ==========================
+       DESCRIPTION
+    ========================== */
+
+    .product-description {
+        margin-top: 25px;
+
+        font-size: 13px;
+    }
+
+
+    /* ==========================
+       PANIER
+    ========================== */
+
+    .sheet-cart-button {
+        width: 100%;
+
+        margin-top: 25px;
+        margin-left: 0;
+
+        min-height: 42px;
+    }
+
+
+    /* ==========================
+       LIGHTBOX
+    ========================== */
+
+    .image-lightbox {
+        padding: 25px;
+    }
+
+    .lightbox-image {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ==========================
+   RESPONSIVE — À PROPOS
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    .about-hero {
+        width: 90%;
+        height: auto;
+        min-height: 830px;
+
+        margin: 50px auto 0;
+        padding: 30px 25px 330px;
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .quote-mark {
+        position: static;
+
+        margin-bottom: 12px;
+
+        font-size: 55px;
+        line-height: .6;
+    }
+
+    .hero-title {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        margin-bottom: 20px;
+
+        font-size: clamp(19px, 5.5vw, 24px);
+        line-height: 1.35;
+        letter-spacing: 4px;
+
+        text-align: left;
+    }
+
+    .hero-text {
+        position: relative;
+        z-index: 10;
+    }
+
+    .hero-description {
+        position: static;
+
+        width: 100%;
+
+        font-size: 14px;
+        line-height: 1.55;
+
+        text-indent: 25px;
+        text-align: justify;
+    }
+
+    .hero-description span {
+        position: static;
+
+        display: inline;
+
+        width: auto;
+
+        font-size: inherit;
+        line-height: inherit;
+
+        text-indent: 0;
+    }
+
+
+    /* ==========================
+       PHOTO FONDATEUR
+    ========================== */
+
+.founder-group {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 355px;
+
+    pointer-events: none;
+}
+
+.founder-wrapper {
+    position: absolute;
+
+    right: -10px;
+    bottom: 0;
+}
+
+.founder {
+    display: block;
+    height: 285px;
+    width: auto;
+}
+
+
+    /* ==========================
+       SCROLL
+    ========================== */
+
+    .scroll-indicator {
+        display: none;
+    }
+
+
+    /* ==========================
+       ESPACEMENT DES SECTIONS
+    ========================== */
+
+    .vision-section,
+    .corentin-section,
+    .mission-section,
+    .message-section {
+        padding: 55px 0;
+
+        overflow: hidden;
+    }
+
+    .vision-section {
+        padding-top: 70px;
+    }
+
+
+    /* ==========================
+       CARTES ANIMÉES
+    ========================== */
+
+    .vision-card,
+    .corentin-card,
+    .mission-card,
+    .message-card {
+        position: relative;
+
+        width: 90%;
+        max-width: none;
+
+        height: auto;
+        min-height: 0;
+
+        margin: 0 auto;
+    }
+
+
+    /* ==========================
+       BANDES / TEXTE
+    ========================== */
+
+    .vision-content,
+    .corentin-content,
+    .mission-content,
+    .message-content {
+        position: relative;
+
+        inset: auto;
+
+        width: 100%;
+        min-height: 0;
+
+        padding: 35px 28px;
+
+        display: block;
+
+        box-sizing: border-box;
+    }
+
+    .vision-content h2,
+    .corentin-content h2,
+    .mission-content h2,
+    .message-content h2 {
+        margin-bottom: 20px;
+
+        font-size: 20px;
+        line-height: 1.3;
+        letter-spacing: 2px;
+
+        text-align: left;
+    }
+
+    .vision-content p,
+    .corentin-content p,
+    .mission-content p,
+    .message-content p {
+        font-size: 14px;
+        line-height: 1.55;
+
+        text-indent: 25px;
+        text-align: justify;
+    }
+
+
+    /* ==========================
+       FOND BLANC DES BANDES
+       suit désormais le texte
+    ========================== */
+
+    .vision-content,
+    .corentin-content,
+    .mission-content,
+    .message-content {
+        background: #FFFDF9;
+    }
+
+
+    /* ==========================
+       PIÈCES DES BANDES
+    ========================== */
+
+    .vision-piece,
+    .corentin-piece,
+    .mission-piece,
+    .message-piece {
+        z-index: 5;
+    }
+
+    .vision-piece img,
+    .corentin-piece img,
+    .mission-piece img,
+    .message-piece img {
+        width: 65px;
+    }
+
+    /* On supprime la longue traînée desktop :
+       le fond blanc est maintenant assuré
+       directement par le contenu */
+
+    .vision-piece::after,
+    .corentin-piece::after,
+    .mission-piece::after,
+    .message-piece::after {
+        display: none;
+    }
+
+
+    /* ==========================
+       VALEURS
+    ========================== */
+
+    .values-section {
+        width: 90%;
+
+        margin: 65px auto;
+    }
+
+    .value-item {
+        margin-bottom: 45px;
+    }
+
+    .value-item h2 {
+        margin-bottom: 18px;
+
+        padding-left: 22px;
+
+        font-size: 19px;
+        line-height: 1.35;
+        letter-spacing: 2px;
+    }
+
+    .value-item p {
+        font-size: 14px;
+        line-height: 1.55;
+
+        text-indent: 25px;
+    }
+}
+
+/* ==========================
+   CORRECTIONS MOBILE — À PROPOS
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       PIÈCES DES NOTIONS
+       Elles traversent puis sortent
+    ========================== */
+
+    .vision-piece,
+    .corentin-piece,
+    .mission-piece,
+    .message-piece {
+        pointer-events: none;
+    }
+
+    .vision-piece img,
+    .corentin-piece img,
+    .mission-piece img,
+    .message-piece img {
+        width: 80px;
+    }
+
+
+    /* De gauche vers droite */
+
+    .vision-piece,
+    .mission-piece {
+        animation-name: mobilePieceLeftToRight !important;
+        animation-fill-mode: forwards !important;
+    }
+
+
+    /* De droite vers gauche */
+
+    .corentin-piece,
+    .message-piece {
+        animation-name: mobilePieceRightToLeft !important;
+        animation-fill-mode: forwards !important;
+    }
+
+
+    @keyframes mobilePieceLeftToRight {
+
+        0% {
+            transform: translateX(-130vw);
+        }
+
+        45% {
+            transform: translateX(0);
+        }
+
+        60% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(130vw);
+        }
+    }
+
+
+    @keyframes mobilePieceRightToLeft {
+
+        0% {
+            transform: translateX(130vw);
+        }
+
+        45% {
+            transform: translateX(0);
+        }
+
+        60% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-130vw);
+        }
+    }
+}
+
+/* ==========================
+   RESPONSIVE — CONTACT
+========================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       SECTION
+    ========================== */
+
+    .contact-section {
+        min-height: auto;
+
+        padding: 50px 5% 60px;
+
+        display: block;
+    }
+
+
+    /* ==========================
+       CARTE
+    ========================== */
+
+    .contact-card {
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+
+        padding: 35px 25px;
+
+        border-radius: 25px;
+
+        display: flex;
+        flex-direction: column;
+
+        transform: none;
+    }
+
+
+    /* ==========================
+   PARTIE GAUCHE
+========================== */
+
+.contact-info {
+    position: relative;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================
+   TITRE
+========================== */
+
+.contact-info h1 {
+    margin-bottom: 35px;
+
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.1;
+
+    text-align: center;
+}
+
+
+/* ==========================
+   TEXTE
+========================== */
+
+.contact-info p {
+    max-width: 100%;
+
+    margin-bottom: 35px;
+
+    font-size: 14px;
+    line-height: 1.55;
+
+    text-align: justify;
+}
+
+
+/* ==========================
+   BOUTON DEVIS
+========================== */
+
+.cta-button {
+    position: static;
+
+    transform: none;
+
+    align-self: center;
+
+    margin-bottom: 35px;
+
+    padding: 15px 22px;
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+
+/* ==========================
+   PHOTO
+========================== */
+
+.contact-photo {
+    position: static;
+
+    width: auto;
+    height: 220px;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    border-radius: 0;
+
+    display: block;
+}
+
+    /* ==========================
+       BOUTON DEVIS
+    ========================== */
+
+    .cta-button {
+        left: auto;
+        right: 0;
+        bottom: 85px;
+
+        transform: none;
+
+        padding: 15px 22px;
+
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+
+    /* ==========================
+       SÉPARATEUR
+    ========================== */
+
+    .contact-separator {
+        width: 100%;
+        height: 2px;
+
+        margin: 10px 0 35px;
+
+        background: #12120F;
+    }
+
+
+    /* ==========================
+       FORMULAIRE
+    ========================== */
+
+    .contact-form {
+        width: 100%;
+
+        padding: 0;
+
+        gap: 20px;
+    }
+
+
+    /* ==========================
+       NOM / PRÉNOM
+    ========================== */
+
+    .name-fields {
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    /* ==========================
+       CHAMPS
+    ========================== */
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 14px 20px;
+
+        font-size: 14px;
+    }
+
+    .contact-form textarea {
+        height: 180px;
+
+        border-radius: 25px;
+    }
+
+
+    /* ==========================
+       CONFIDENTIALITÉ
+    ========================== */
+
+    .privacy {
+        align-items: flex-start;
+
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .privacy input {
+        flex: 0 0 18px;
+    }
+
+    .form-privacy {
+        margin-top: 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* ==========================
+       ENVOYER
+    ========================== */
+
+    .send-button {
+        align-self: flex-end;
+
+        padding: 14px 22px;
+
+        font-size: 12px;
+    }
+
+    .form-success {
+        font-size: 12px;
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .legal-page {
+        width: calc(100% - 40px);
+        padding: 140px 0 80px;
+    }
+
+    .legal-heading {
+        margin-bottom: 60px;
+    }
+
+    .legal-content {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
+    .legal-content section {
+        margin-bottom: 50px;
+    }
+
+    .legal-content table {
+        display: block;
+        overflow-x: auto;
+    }
+
+}
+
+/* ==========================
+   RESPONSIVE — DEVIS
+========================== */
+
+/* ==========================
+   TABLETTE
+========================== */
+
+@media (max-width: 1024px) {
+
+    .devis-intro,
+    .devis-form-section {
+        width: 90%;
+    }
+
+    .devis-intro {
+        min-height: auto;
+        padding: 70px 0 60px;
+    }
+
+    .devis-form-section {
+        min-height: auto;
+        padding: 50px 0 80px;
+    }
+
+    .devis-fields-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+    /* INTRODUCTION */
+
+    .devis-intro {
+        width: 90%;
+        min-height: auto;
+
+        margin: 0 auto;
+        padding: 50px 0 45px;
+    }
+
+
+    /* TITRE */
+
+    .devis-title {
+        gap: 15px;
+    }
+
+    .devis-title h1 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .devis-title span {
+        height: 2px;
+    }
+
+
+    /* ACCROCHE */
+
+    .devis-hook {
+        margin-top: 20px;
+
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+
+    /* SÉPARATEUR */
+
+    .devis-separator {
+        margin: 28px 0;
+    }
+
+
+    /* INFORMATIONS */
+
+    .devis-information {
+        gap: 20px;
+    }
+
+    .devis-information p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+
+    /* LIEN TARIFS */
+
+    .tarifs-link {
+        margin-top: 25px;
+
+        font-size: 13px;
+    }
+
+
+    /* SECTION FORMULAIRE */
+
+    .devis-form-section {
+        width: 90%;
+        min-height: auto;
+
+        margin: 0 auto;
+        padding: 35px 0 70px;
+    }
+
+
+    /* FORMULAIRE */
+
+    .devis-form {
+        gap: 22px;
+    }
+
+
+    /* CHAMPS */
+
+    .devis-fields-row {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .devis-form input[type="text"],
+    .devis-form input[type="email"],
+    .devis-form select {
+        height: 48px;
+
+        padding: 0 20px;
+
+        font-size: 13px;
+    }
+
+    .devis-form textarea {
+        height: 200px;
+
+        padding: 20px;
+
+        border-radius: 25px;
+
+        font-size: 13px;
+    }
+
+
+    /* BAS DU FORMULAIRE */
+
+    .devis-form-bottom {
+        display: flex;
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .devis-legal {
+        width: 100%;
+    }
+
+
+    /* TEXTES LÉGAUX */
+
+    .form-privacy,
+    .devis-warning {
+        max-width: 100%;
+
+        font-size: 11px;
+        line-height: 1.55;
+
+        text-align: justify;
+    }
+
+
+    /* CONFIDENTIALITÉ */
+
+    .privacy {
+        align-items: flex-start;
+
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .privacy input {
+        flex: 0 0 18px;
+    }
+
+
+    /* ENVOYER */
+
+    .send-button {
+        align-self: flex-end;
+
+        padding: 14px 22px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* ==========================
+   PETITS TÉLÉPHONES
+========================== */
+
+@media (max-width: 480px) {
+
+    .devis-intro,
+    .devis-form-section {
+        width: 90%;
+    }
+
+    .devis-title h1 {
+        font-size: 28px;
+    }
+
+    .devis-hook,
+    .devis-information p {
+        font-size: 13px;
+    }
+
+    .devis-form textarea {
+        height: 180px;
+    }
+
+    .send-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+
+    .devis-intro,
+    .devis-form-section {
+        width: calc(100% - 60px);
+    }
+
+
+    .devis-fields-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .devis-intro,
+    .devis-form-section {
+        width: calc(100% - 30px);
+    }
+
+
+    .devis-intro {
+        padding-top: 90px;
+    }
+
+
+    .devis-title h1 {
+        font-size: 30px;
+    }
+
+
+    .devis-fields-row {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .devis-form-section {
+        padding: 50px 0 80px;
+    }
+
+
+    .devis-form-bottom {
+        flex-direction: column;
+    }
+
+
+    .send-button {
+        align-self: flex-end;
+    }
+
+}

@@ -1051,42 +1051,6 @@ html{
 }
 
 /* ==========================
-   INFOS TECHNIQUES SITE
-========================== */
-
-.site-notice{
-
-    position:fixed;
-
-    top:50%;
-    right:40px;
-
-    transform:translateY(-50%);
-
-    background:#6E6A65;
-    color:#FFFDF9;
-
-    padding:18px 24px;
-
-    border-radius:16px;
-
-    font-size:14px;
-    font-weight:500;
-
-    text-align:center;
-
-    z-index:1000;
-
-    max-width:250px;
-
-    box-shadow:0 5px 12px #D8D0C7;
-
-    backdrop-filter:blur(8px);
-
-    text-align:justify;
-
-}
-/* ==========================
    HEADER / FOOTER ACCUEIL
 ========================== */
 
