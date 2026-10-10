@@ -246,3 +246,57 @@
     }
 
 }
+
+/* ==========================
+   INSTALLATION PWA
+========================== */
+
+.pwa-install {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.pwa-install-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 13px 22px;
+
+    background: #FFFDF9;
+    color: #12120F;
+
+    border: 1px solid #FFFDF9;
+    border-radius: 30px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.pwa-install-button:hover {
+    background: #B48A5A;
+    border-color: #B48A5A;
+    color: #12120F;
+}
+
+.pwa-install-message {
+    max-width: 320px;
+
+    color: #FFFDF9;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.pwa-install-message[hidden] {
+    display: none;
+}

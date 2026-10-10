@@ -313,3 +313,12 @@ body {
         filter: blur(0);
     }
 }
+
+/* ==========================
+   ESPACEMENT PWA — PAGES LÉGALES
+========================== */
+
+.pwa-install {
+    position: relative;
+    top: 45px;
+}

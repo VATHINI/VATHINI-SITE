@@ -532,3 +532,11 @@ body{
         filter: blur(0);
     }
 }
+
+/* ==========================
+   ESPACEMENT INSTALLATION PWA
+========================== */
+
+.pwa-install {
+    margin-top: 60px;
+}
