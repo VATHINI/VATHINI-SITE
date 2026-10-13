@@ -120,7 +120,9 @@
 
             try {
 
-                const response = await fetch(API_URL, {
+    const startTime = Date.now();
+
+    const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -129,6 +131,13 @@
                 });
 
                 const result = await response.json();
+
+                const elapsedTime = Date.now() - startTime;
+const remainingTime = Math.max(0, 1500 - elapsedTime);
+
+if (remainingTime > 0) {
+    await new Promise(resolve => setTimeout(resolve, remainingTime));
+}
 
                 if (!response.ok || !result.success) {
                     throw new Error(result.message || 'Erreur de préparation.');

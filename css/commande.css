@@ -52,3 +52,4 @@ body { min-height: 100vh; background: #12120F; color: #FFFDF9; font-family: 'Mon
 @media (max-width: 760px) { .commande-section { width: calc(100% - 40px); padding: 115px 0 80px; } .commande-title { font-size: clamp(25px,6vw,34px); letter-spacing: -1px; } .commande-intro { margin-bottom: 35px; } .commande-layout { grid-template-columns: 1fr; gap: 45px; } .commande-two-cols { grid-template-columns: 1fr; gap: 0; } }
 @media (max-width: 400px) { .commande-section { width: calc(100% - 30px); } .commande-summary-content { padding: 28px 20px 22px; } }
 @media (prefers-reduced-motion: reduce) { .commande-page { animation: none; } }
+#commande-pay:disabled { cursor: default; }
