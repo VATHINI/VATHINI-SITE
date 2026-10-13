@@ -53,3 +53,43 @@ body { min-height: 100vh; background: #12120F; color: #FFFDF9; font-family: 'Mon
 @media (max-width: 400px) { .commande-section { width: calc(100% - 30px); } .commande-summary-content { padding: 28px 20px 22px; } }
 @media (prefers-reduced-motion: reduce) { .commande-page { animation: none; } }
 #commande-pay:disabled { cursor: default; }
+/* ==========================
+   BOUTON PAIEMENT - INTERACTIONS
+========================== */
+
+#commande-pay {
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Survol lorsque le bouton est actif */
+
+#commande-pay:not(:disabled):hover {
+    background-color: #12120F;
+    color: #FFFDF9;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 16px rgba(18, 18, 15, 0.18);
+}
+
+/* Bouton désactivé */
+
+#commande-pay:disabled {
+    cursor: default !important;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Accessibilité */
+
+@media (prefers-reduced-motion: reduce) {
+    #commande-pay {
+        transition: none;
+    }
+}
