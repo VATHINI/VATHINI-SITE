@@ -135,24 +135,25 @@
                 }
 
                 status.textContent =
-                    'Commande test enregistrée avec succès ! Référence : ' +
-                    result.orderId;
+    'Commande test enregistrée avec succès ! Référence : ' +
+    result.orderId;
 
-                console.log('Commande VATHINI créée :', result);
+payButton.textContent = 'COMMANDE ENREGISTRÉE';
+payButton.disabled = true;
+
+console.log('Commande VATHINI créée :', result);
 
             } catch (error) {
 
-                console.error('Erreur VATHINI :', error);
+    console.error('Erreur VATHINI :', error);
 
-                status.textContent =
-                    'Impossible de préparer la commande. Veuillez réessayer.';
+    status.textContent =
+        'Impossible de préparer la commande. Veuillez réessayer.';
 
-            } finally {
+    payButton.disabled = false;
+    payButton.textContent = 'PROCÉDER AU PAIEMENT';
 
-                payButton.disabled = false;
-                payButton.textContent = 'PROCÉDER AU PAIEMENT';
-
-            }
+}
 
         });
 
