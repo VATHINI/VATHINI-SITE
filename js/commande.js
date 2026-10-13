@@ -102,7 +102,9 @@
                 address2: document.getElementById('commande-address2').value.trim(),
                 postalCode: document.getElementById('commande-postal').value.trim(),
                 city: document.getElementById('commande-city').value.trim(),
-                country: document.getElementById('commande-country').value.trim()
+                country: document.getElementById('commande-country').value.trim(),
+                acceptCgv: document.getElementById('commande-cgv').checked,
+                acceptDigital: document.getElementById('commande-digital').checked
             };
 
             const cgv = document.getElementById('commande-cgv');
