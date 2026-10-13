@@ -1,0 +1,502 @@
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #12120F;
+    color: #FFFDF9;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ==========================
+   PAGE PANIER
+========================== */
+
+.panier-page {
+    width: 100%;
+    min-height: 80vh;
+
+    background: #FFFDF9;
+    color: #12120F;
+
+    animation: panierReveal 0.5s ease-out both;
+}
+
+.panier-section {
+    width: min(1400px, calc(100% - 160px));
+    margin: 0 auto;
+    padding: 115px 0 130px;
+}
+
+
+/* ==========================
+   TITRE
+========================== */
+
+.panier-title {
+    display: inline-block;
+    margin-bottom: 55px;
+    padding-bottom: 8px;
+
+    border-bottom: 2px solid #B48A5A;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+
+/* ==========================
+   DISPOSITION
+========================== */
+
+.panier-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 365px;
+    align-items: start;
+    gap: 48px;
+}
+
+
+/* ==========================
+   LISTE DES PRODUITS
+========================== */
+
+.panier-products {
+    min-width: 0;
+}
+
+.panier-products-header {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr) 100px;
+    gap: 20px;
+
+    padding: 0 20px 20px;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.panier-item {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr) 100px;
+    align-items: center;
+    gap: 20px;
+
+    position: relative;
+
+    min-height: 155px;
+    padding: 20px;
+
+    border-bottom: 2px solid #B48A5A;
+}
+
+.panier-item-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 110px;
+    height: 110px;
+}
+
+.panier-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.panier-item-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.panier-item-price {
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.panier-item-remove {
+    position: absolute;
+    top: 12px;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background: transparent;
+    color: #6E6A65;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.panier-item-remove:hover {
+    color: #B48A5A;
+    transform: scale(1.1);
+}
+
+
+/* ==========================
+   PANIER VIDE
+========================== */
+
+.panier-empty {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.panier-empty[hidden] {
+    display: none;
+}
+
+.panier-empty p {
+    margin-bottom: 25px;
+    font-size: 17px;
+}
+
+.panier-empty a {
+    display: inline-block;
+    padding: 13px 24px;
+
+    border: 1px solid #B48A5A;
+    border-radius: 30px;
+
+    color: #12120F;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.panier-empty a:hover {
+    background: #B48A5A;
+    color: #FFFDF9;
+}
+
+
+/* ==========================
+   RÉCAPITULATIF
+========================== */
+
+.panier-summary {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 445px;
+    background: #D9D3CD;
+}
+
+.panier-summary-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 38px 35px 25px;
+}
+
+.panier-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 15px;
+
+    margin-bottom: 17px;
+
+    font-size: 15px;
+}
+
+.panier-summary-row span:last-child {
+    font-weight: 600;
+}
+
+.panier-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 5px;
+}
+
+.panier-promo label {
+    max-width: 145px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.panier-promo input {
+    width: 145px;
+    min-width: 0;
+    padding: 11px 15px;
+
+    border: none;
+    border-radius: 30px;
+    outline: none;
+
+    background: #FFFDF9;
+    color: #12120F;
+
+    font-family: inherit;
+    font-size: 12px;
+    text-align: center;
+}
+
+.panier-promo input:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.panier-summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: auto;
+    padding-top: 18px;
+
+    border-top: 2px solid #6E6A65;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.panier-summary-total strong {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   BOUTON PAYER
+========================== */
+
+.panier-summary-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 63px;
+    padding: 10px 20px;
+
+    background: #B48A5A;
+}
+
+#panier-checkout {
+    min-width: 165px;
+    padding: 6px 25px;
+
+    border: 2px solid #FFFDF9;
+    border-radius: 30px;
+
+    background: transparent;
+    color: #FFFDF9;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+#panier-checkout:hover:not(:disabled) {
+    background: #FFFDF9;
+    color: #12120F;
+}
+
+#panier-checkout:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes panierReveal {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================
+   RESPONSIVE TABLETTE
+========================== */
+
+@media (max-width: 1100px) {
+
+    .panier-section {
+        width: min(100% - 80px, 1400px);
+    }
+
+    .panier-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 30px;
+    }
+
+    .panier-products-header,
+    .panier-item {
+        grid-template-columns: 100px minmax(0, 1fr) 85px;
+        gap: 12px;
+    }
+
+    .panier-item-image {
+        width: 95px;
+        height: 95px;
+    }
+
+    .panier-summary-content {
+        padding: 30px 25px 25px;
+    }
+
+    .panier-promo {
+        flex-wrap: wrap;
+    }
+
+    .panier-promo input {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE MOBILE
+========================== */
+
+@media (max-width: 760px) {
+
+    .panier-section {
+        width: calc(100% - 40px);
+        padding: 115px 0 80px;
+    }
+
+    .panier-title {
+        margin-bottom: 35px;
+        font-size: clamp(25px, 6vw, 34px);
+        letter-spacing: -1px;
+    }
+
+    .panier-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .panier-products-header {
+        display: none;
+    }
+
+    .panier-item {
+        grid-template-columns: 95px minmax(0, 1fr);
+        gap: 15px;
+
+        min-height: 135px;
+        padding: 20px 35px 20px 0;
+    }
+
+    .panier-item-image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .panier-item-name {
+        font-size: 17px;
+    }
+
+    .panier-item-price {
+        grid-column: 2;
+        font-size: 16px;
+    }
+
+    .panier-item-remove {
+        right: 0;
+        top: 15px;
+    }
+
+    .panier-summary {
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .panier-promo {
+        flex-wrap: nowrap;
+    }
+
+    .panier-promo input {
+        width: 145px;
+    }
+
+}
+
+
+/* ==========================
+   PETITS MOBILES
+========================== */
+
+@media (max-width: 400px) {
+
+    .panier-section {
+        width: calc(100% - 30px);
+    }
+
+    .panier-item {
+        grid-template-columns: 75px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .panier-item-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .panier-summary-content {
+        padding: 28px 20px 22px;
+    }
+
+    .panier-promo {
+        flex-wrap: wrap;
+    }
+
+    .panier-promo input {
+        width: 100%;
+    }
+
+}

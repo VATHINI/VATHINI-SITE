@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finalisez votre commande de plans numériques VATHINI.">
+    <meta name="author" content="VATHINI">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.vathini.fr/commande.html">
+    <title>Finaliser votre commande | VATHINI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/commande.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#12120F">
+    <meta name="apple-mobile-web-app-title" content="VATHINI">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="commande-page">
+        <section class="commande-section" aria-labelledby="commande-title">
+            <h1 id="commande-title" class="commande-title">FINALISER VOTRE COMMANDE</h1>
+            <p class="commande-intro">Complétez vos informations pour préparer votre commande de plans numériques.</p>
+
+            <div id="commande-empty" class="commande-empty" hidden>
+                <p>Votre panier est vide. Ajoutez un plan numérique avant de poursuivre.</p>
+                <a href="galerie.html">DÉCOUVRIR LA GALERIE</a>
+            </div>
+
+            <div id="commande-layout" class="commande-layout" hidden>
+                <form id="commande-form" class="commande-form" novalidate>
+                    <h2>VOS INFORMATIONS</h2>
+                    <p class="commande-hint">Les champs marqués d’un * sont obligatoires.</p>
+
+                    <fieldset class="commande-fieldset">
+                        <legend>Vous commandez en tant que *</legend>
+                        <div class="commande-choice-row">
+                            <label><input type="radio" name="clientType" value="particulier" checked> Particulier</label>
+                            <label><input type="radio" name="clientType" value="entreprise"> Entreprise</label>
+                            <label><input type="radio" name="clientType" value="association"> Association</label>
+                        </div>
+                    </fieldset>
+
+                    <div id="commande-organization" class="commande-field" hidden>
+                        <label for="commande-organization-name">Nom de l’entreprise ou de l’association *</label>
+                        <input id="commande-organization-name" name="organizationName" type="text" autocomplete="organization" maxlength="150">
+                    </div>
+
+                    <div class="commande-two-cols">
+                        <div class="commande-field">
+                            <label for="commande-firstname">Prénom *</label>
+                            <input id="commande-firstname" name="firstName" type="text" autocomplete="given-name" maxlength="80" required>
+                        </div>
+                        <div class="commande-field">
+                            <label for="commande-lastname">Nom *</label>
+                            <input id="commande-lastname" name="lastName" type="text" autocomplete="family-name" maxlength="80" required>
+                        </div>
+                    </div>
+
+                    <div class="commande-field">
+                        <label for="commande-email">Adresse e-mail *</label>
+                        <input id="commande-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                        <small>Cette adresse servira à vous contacter et à vous transmettre vos plans numériques après paiement.</small>
+                    </div>
+
+                    <h2 class="commande-subtitle">ADRESSE DE FACTURATION</h2>
+                    <div class="commande-field">
+                        <label for="commande-address">Adresse *</label>
+                        <input id="commande-address" name="address" type="text" autocomplete="address-line1" maxlength="200" required>
+                    </div>
+                    <div class="commande-field">
+                        <label for="commande-address2">Complément d’adresse (facultatif)</label>
+                        <input id="commande-address2" name="address2" type="text" autocomplete="address-line2" maxlength="200">
+                    </div>
+                    <div class="commande-two-cols">
+                        <div class="commande-field">
+                            <label for="commande-postal">Code postal *</label>
+                            <input id="commande-postal" name="postalCode" type="text" autocomplete="postal-code" maxlength="20" required>
+                        </div>
+                        <div class="commande-field">
+                            <label for="commande-city">Ville *</label>
+                            <input id="commande-city" name="city" type="text" autocomplete="address-level2" maxlength="100" required>
+                        </div>
+                    </div>
+                    <div class="commande-field">
+                        <label for="commande-country">Pays *</label>
+                        <input id="commande-country" name="country" type="text" autocomplete="country-name" value="France" maxlength="100" required>
+                    </div>
+
+                    <div class="commande-consents">
+                        <label class="commande-checkbox"><input type="checkbox" id="commande-cgv" required><span>J’ai lu et j’accepte les <a href="cgv.html" target="_blank" rel="noopener noreferrer">conditions générales de vente</a>. *</span></label>
+                        <label class="commande-checkbox"><input type="checkbox" id="commande-digital" required><span>Je demande expressément que la fourniture des contenus numériques commence avant la fin du délai légal de rétractation et reconnais qu’une fois cette fourniture commencée, je perdrai mon droit de rétractation, dans les conditions prévues par la loi. *</span></label>
+                    </div>
+                    <p id="commande-form-status" class="commande-form-status" role="status" aria-live="polite"></p>
+                </form>
+
+                <aside class="commande-summary" aria-label="Récapitulatif de commande">
+                    <div class="commande-summary-content">
+                        <h2>RÉCAPITULATIF</h2>
+                        <div id="commande-items" class="commande-items"></div>
+                        <div class="commande-summary-row"><span>Nombre de produits</span><strong id="commande-count">0</strong></div>
+                        <div class="commande-summary-total"><span>Total :</span><strong id="commande-total">0,00 €</strong></div>
+                        <a class="commande-back" href="panier.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> MODIFIER MON PANIER</a>
+                    </div>
+                    <div class="commande-summary-footer">
+                        <button type="button" id="commande-pay" disabled>PROCÉDER AU PAIEMENT</button>
+                    </div>
+                    <p class="commande-payment-note">Le paiement sécurisé CAWL sera disponible prochainement.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="js/products.js"></script>
+    <script src="js/panier.js"></script>
+    <script src="js/commande.js"></script>
+    <script src="js/components.js"></script>
+    <script src="/js/pwa-install.js" defer></script>
+</body>
+</html>

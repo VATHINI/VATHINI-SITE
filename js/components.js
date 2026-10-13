@@ -23,8 +23,20 @@ async function loadComponent(selector, file) {
 }
 
 
-/* HEADER */
-loadComponent("#site-header", "components/header.html");
+/* ==========================
+   HEADER
+========================== */
+
+loadComponent(
+    "#site-header",
+    "components/header.html"
+).then(() => {
+
+    if (typeof updateCartCounter === 'function') {
+        updateCartCounter();
+    }
+
+});
 
 
 /* FOOTER */

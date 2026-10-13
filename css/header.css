@@ -247,3 +247,60 @@
         filter: blur(0);
     }
 }
+
+
+/* ==========================
+   COMPTEUR PANIER
+========================== */
+
+.header-cart {
+    position: relative;
+}
+
+.header-cart-count {
+    position: absolute;
+
+    top: -9px;
+    right: -12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 19px;
+    height: 19px;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #B48A5A;
+    color: #FFFDF9;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+.header-cart-count[hidden] {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+
+    .header-cart-count {
+        top: -7px;
+        right: -9px;
+
+        min-width: 17px;
+        height: 17px;
+
+        font-size: 9px;
+    }
+
+}

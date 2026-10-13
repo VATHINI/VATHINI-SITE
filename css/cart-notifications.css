@@ -1,0 +1,77 @@
+
+/* ==========================
+   NOTIFICATIONS PANIER VATHINI
+========================== */
+
+.vathini-cart-notification {
+    position: fixed;
+    top: 105px;
+    right: 30px;
+
+    z-index: 9999;
+
+    max-width: min(380px, calc(100vw - 40px));
+    padding: 18px 25px;
+
+    background: #12120F;
+    color: #FFFDF9;
+
+    border: 1px solid #B48A5A;
+    border-radius: 4px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-15px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    pointer-events: none;
+}
+
+.vathini-cart-notification.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.vathini-cart-notification.notification-warning {
+    border-color: #B48A5A;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 760px) {
+
+    .vathini-cart-notification {
+        top: 85px;
+        right: 15px;
+        left: 15px;
+
+        max-width: none;
+
+        text-align: center;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vathini-cart-notification {
+        transition: none;
+    }
+
+}
