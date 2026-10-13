@@ -41,7 +41,59 @@ body { min-height: 100vh; background: #12120F; color: #FFFDF9; font-family: 'Mon
 .commande-back { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; color: #12120F; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: .4px; }
 .commande-back:hover { color: #8B6337; }
 .commande-summary-footer { background: #B48A5A; padding: 14px 20px; display: flex; justify-content: center; }
-#commande-pay { border: 2px solid #FFFDF9; border-radius: 30px; padding: 9px 20px; color: #FFFDF9; background: transparent; font: 700 16px 'Space Grotesk',sans-serif; cursor: not-allowed; opacity: .6; }
+
+/* ==========================
+   BOUTON PAIEMENT VATHINI
+========================== */
+
+#commande-pay {
+    border: 2px solid #FFFDF9;
+    border-radius: 30px;
+    padding: 9px 20px;
+
+    background: transparent;
+    color: #FFFDF9;
+
+    font: 700 16px 'Space Grotesk', sans-serif;
+
+    cursor: pointer;
+    opacity: 1;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* SURVOL */
+
+#commande-pay:not(:disabled):hover {
+    background: #FFFDF9;
+    color: #12120F;
+
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(18, 18, 15, 0.18);
+}
+
+/* BOUTON DÉSACTIVÉ */
+
+#commande-pay:disabled {
+    cursor: default;
+    opacity: 0.6;
+
+    transform: none;
+    box-shadow: none;
+}
+
+/* ACCESSIBILITÉ */
+
+@media (prefers-reduced-motion: reduce) {
+    #commande-pay {
+        transition: none;
+    }
+}
+
 .commande-payment-note { text-align: center; padding: 15px 22px 20px; color: #554F49; font-size: 11px; line-height: 1.6; }
 .commande-empty { padding: 50px 25px; border: 1px solid #D9D3CD; text-align: center; }
 .commande-empty p { margin-bottom: 25px; line-height: 1.6; }
@@ -52,44 +104,4 @@ body { min-height: 100vh; background: #12120F; color: #FFFDF9; font-family: 'Mon
 @media (max-width: 760px) { .commande-section { width: calc(100% - 40px); padding: 115px 0 80px; } .commande-title { font-size: clamp(25px,6vw,34px); letter-spacing: -1px; } .commande-intro { margin-bottom: 35px; } .commande-layout { grid-template-columns: 1fr; gap: 45px; } .commande-two-cols { grid-template-columns: 1fr; gap: 0; } }
 @media (max-width: 400px) { .commande-section { width: calc(100% - 30px); } .commande-summary-content { padding: 28px 20px 22px; } }
 @media (prefers-reduced-motion: reduce) { .commande-page { animation: none; } }
-#commande-pay:disabled { cursor: default; }
-/* ==========================
-   BOUTON PAIEMENT - INTERACTIONS
-========================== */
 
-#commande-pay {
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-/* Survol lorsque le bouton est actif */
-
-#commande-pay:not(:disabled):hover {
-    background-color: #12120F;
-    color: #FFFDF9;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 6px 16px rgba(18, 18, 15, 0.18);
-}
-
-/* Bouton désactivé */
-
-#commande-pay:disabled {
-    cursor: default !important;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Accessibilité */
-
-@media (prefers-reduced-motion: reduce) {
-    #commande-pay {
-        transition: none;
-    }
-}
