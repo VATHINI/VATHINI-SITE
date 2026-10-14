@@ -153,8 +153,10 @@ if (Array.isArray(purchasedProducts)) {
     );
 
     window.dispatchEvent(new Event('vathini-cart-updated'));
-    renderOrder();
+renderOrder();
 }
+
+empty.hidden = true;
 
 if (paymentResult) {
     paymentResult.hidden = false;
@@ -162,7 +164,6 @@ if (paymentResult) {
         'Votre paiement a bien été confirmé ! Merci pour votre commande. VATHINI vous contactera prochainement pour la transmission de vos plans numériques.';
 }
 
-empty.hidden = true;
 sessionStorage.setItem(
     'vathini-last-confirmed-order',
     orderId
