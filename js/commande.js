@@ -71,14 +71,17 @@
     const status = document.getElementById('commande-form-status');
 
     const API_URL = 'https://vathini-payments.vathini-cor.workers.dev/api/orders';
+    let paymentInProgress = false;
 
     if (payButton && form && status) {
 
         payButton.disabled = false;
 
-        payButton.addEventListener('click', async () => {
+       payButton.addEventListener('click', async () => {
 
-            status.textContent = '';
+    if (paymentInProgress) return;
+
+    status.textContent = '';
 
             if (!form.reportValidity()) return;
 
@@ -115,6 +118,7 @@
                 return;
             }
 
+            paymentInProgress = true;
             payButton.disabled = true;
             payButton.textContent = 'PRÉPARATION DE LA COMMANDE...';
 
@@ -143,15 +147,33 @@ if (remainingTime > 0) {
                     throw new Error(result.message || 'Erreur de préparation.');
                 }
 
-                status.textContent =
-    'Commande test enregistrée avec succès ! Référence : ' +
-    result.orderId;
+                
+if (
+    typeof result.redirectUrl !== 'string' ||
+    !result.redirectUrl
+) {
+    throw new Error('Adresse de paiement CAWL manquante.');
+}
 
-payButton.textContent = 'COMMANDE ENREGISTRÉE';
+const paymentUrl = new URL(result.redirectUrl);
+
+if (
+    paymentUrl.protocol !== 'https:' ||
+    !(
+        paymentUrl.hostname === 'cawl-solutions.fr' ||
+        paymentUrl.hostname.endsWith('.cawl-solutions.fr')
+    )
+) {
+    throw new Error('Adresse de paiement non autorisée.');
+}
+
+status.textContent = 'Redirection vers le paiement sécurisé...';
+payButton.textContent = 'REDIRECTION EN COURS...';
 payButton.disabled = true;
 
-console.log('Commande VATHINI créée :', result);
+window.location.assign(paymentUrl.href);
 
+paymentInProgress = false;
             } catch (error) {
 
     console.error('Erreur VATHINI :', error);
@@ -159,6 +181,7 @@ console.log('Commande VATHINI créée :', result);
     status.textContent =
         'Impossible de préparer la commande. Veuillez réessayer.';
 
+    paymentInProgress = false;
     payButton.disabled = false;
     payButton.textContent = 'PROCÉDER AU PAIEMENT';
 
