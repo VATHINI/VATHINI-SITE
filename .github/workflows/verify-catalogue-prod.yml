@@ -1,0 +1,25 @@
+name: VATHINI - Verification syntaxe catalogue PRODUCTION
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verifier la syntaxe du script de production
+        run: node --check scripts/sync-products-prod.mjs
+      - name: Verifier la presence du catalogue
+        run: test -s js/products.js
