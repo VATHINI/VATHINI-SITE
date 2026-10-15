@@ -1,0 +1,35 @@
+
+name: VATHINI - Synchronisation catalogue PRODUCTION
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vathini-catalogue-production
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Synchroniser les produits vers D1 PRODUCTION
+        env:
+          CLOUDFLARE_API_TOKEN_PROD: ${{ secrets.CLOUDFLARE_API_TOKEN_PROD }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_D1_DATABASE_ID_PROD: ${{ vars.CLOUDFLARE_D1_DATABASE_ID_PROD }}
+        run: node scripts/sync-products-prod.mjs
