@@ -3,6 +3,12 @@ name: VATHINI - Synchronisation catalogue TEST
 on:
   workflow_dispatch:
 
+  push:
+    branches:
+      - main
+    paths:
+      - 'js/products.js'
+
 permissions:
   contents: read
 
