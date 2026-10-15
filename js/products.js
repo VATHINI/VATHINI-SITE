@@ -6,6 +6,7 @@ const VATHINI_PRODUCTS = {
 
     "boite-vathini": {
 
+// Test de synchronisation automatique GitHub Actions
         name: "La Boîte VATHINI",
 
         price: "17.99€",
