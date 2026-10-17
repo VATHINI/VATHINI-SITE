@@ -1880,3 +1880,108 @@
     }
 
 }
+
+/* ==========================
+   FINITIONS MOBILE — 17/10/2026
+   Accueil et À propos
+========================== */
+@media (max-width: 768px) {
+    /* Accueil : composition lisible, sans justification excessive */
+    .cta-project {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 65px 0 110px;
+    }
+    .cta-content {
+        padding: 0 7%;
+        text-align: left;
+    }
+    .cta-content h2 {
+        font-size: clamp(2.8rem, 11vw, 5rem);
+        line-height: 1.05;
+        margin-bottom: 28px;
+        white-space: normal;
+    }
+    .cta-content p {
+        max-width: 100%;
+        font-size: clamp(14px, 3.8vw, 17px);
+        line-height: 1.65;
+        letter-spacing: .3px;
+        text-align: left;
+        text-indent: 0;
+        overflow-wrap: break-word;
+    }
+    .cta-background {
+        width: 90%;
+        height: 45%;
+        transform: translate(-50%, -50%);
+        opacity: .20;
+        pointer-events: none;
+    }
+    .cta-project .cta-button {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        align-self: center;
+        justify-content: center;
+        width: max-content;
+        max-width: 90%;
+        margin: 36px auto 0;
+        padding: 15px 20px;
+        gap: 9px;
+        font-size: clamp(10px, 2.8vw, 13px);
+        letter-spacing: 1px;
+        white-space: normal;
+        text-align: center;
+    }
+    /* À propos : photo sous le texte, sans découpe latérale */
+    .about-hero {
+        min-height: 0;
+        padding-bottom: 0;
+    }
+    .founder-group {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        margin-top: 28px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .founder-wrapper {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: 100%;
+    }
+    .founder {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 340px;
+        object-fit: contain;
+        object-position: right bottom;
+    }
+    /* Les quatre pièces et les textes apparaissent plus vite */
+    .vision-card.active .vision-piece,
+    .mission-card.active .mission-piece {
+        animation: mobilePieceLeftToRight 1s ease-in-out forwards !important;
+    }
+    .corentin-card.active .corentin-piece,
+    .message-card.active .message-piece {
+        animation: mobilePieceRightToLeft 1s ease-in-out forwards !important;
+    }
+    .vision-card.active .vision-content,
+    .corentin-card.active .corentin-content,
+    .mission-card.active .mission-content,
+    .message-card.active .message-content {
+        animation-delay: .8s;
+    }
+}
