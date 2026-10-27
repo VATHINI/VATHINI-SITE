@@ -28,6 +28,11 @@
    const active=new Set();const byWorld=[];
    for(const id of Object.keys(VATHINI_PRODUCTS))delete VATHINI_PRODUCTS[id];
    for(const raw of data.products){const p=mapProduct(raw);if(!p)continue;
+    // Repli d'images UNIQUEMENT pour les produits historiques connus du site.
+    // Le catalogue D1 reste prioritaire, et les prix/visibilités ne sont pas modifiés.
+    if(!p.images.length && p.id==='boite-vathini'){
+     p.images=[1,2,3,4].map(i=>`/images/boite-vathini-${i}.png`);
+    }
     // Produits non achetables : visibles dans leur Monde, mais jamais ajoutables au panier.
     VATHINI_PRODUCTS[p.id]=p;if(p.purchasable)active.add(p.id);
     if(p.world_slug===(document.body.dataset.worldSlug||'monde-vathini'))byWorld.push(p);
