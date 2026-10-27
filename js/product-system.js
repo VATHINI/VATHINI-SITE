@@ -116,7 +116,9 @@ function loadProduct(productId) {
         li.textContent = item;
 
         productContents.appendChild(li);
-        document.getElementById("product-dimensions").textContent =
+    });
+
+    document.getElementById("product-dimensions").textContent =
     product.dimensions;
 
 document.getElementById("product-weight").textContent =
@@ -127,8 +129,6 @@ document.getElementById("product-parts-price").textContent =
 
 document.getElementById("product-parts-price-date").textContent =
     product.partsPriceDate;
-
-    });
 
 
     /* PANIER */
@@ -291,16 +291,12 @@ const productTriggers =
     );
 
 
-productTriggers.forEach(trigger => {
-
-    trigger.addEventListener('click', () => {
-
-        loadProduct(
-            trigger.dataset.product
-        );
-
-    });
-
+// Délégation : fonctionne également pour les cartes créées après chargement depuis D1.
+document.addEventListener('click', event => {
+    const trigger = event.target.closest('.product-image-link, .product-details-button');
+    if (!trigger || !catalogueView.contains(trigger)) return;
+    const id = trigger.dataset.product;
+    if (id && Object.prototype.hasOwnProperty.call(VATHINI_PRODUCTS, id)) loadProduct(id);
 });
 
 

@@ -13,8 +13,8 @@
   function card(world) {
     // Ne pas inventer de page de Monde : seule la page VATHINI existe en production.
     const isVathini = world.slug === 'monde-vathini' || world.slug === 'vathini';
-    const el = make(isVathini ? 'a' : 'article', 'univers-card');
-    if (isVathini) el.href = 'monde-vathini.html';
+    const el = make('a', 'univers-card');
+    el.href = isVathini ? 'monde-vathini.html' : 'monde.html?monde=' + encodeURIComponent(world.slug);
     const content = make('div', 'univers-content');
     content.append(make('h2', '', world.name), make('p', '', world.description || 'Découvrez cet univers VATHINI.'));
     const visual = make('div', 'univers-visual univers-vathini');

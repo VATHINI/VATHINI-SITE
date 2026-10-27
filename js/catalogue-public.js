@@ -22,7 +22,7 @@
    for(const raw of data.products){const p=mapProduct(raw);if(!p)continue;
     // Produits non achetables : visibles dans leur Monde, mais jamais ajoutables au panier.
     VATHINI_PRODUCTS[p.id]=p;if(p.purchasable)active.add(p.id);
-    if(p.world_slug==='monde-vathini')byWorld.push(p);
+    if(p.world_slug===(document.body.dataset.worldSlug||'monde-vathini'))byWorld.push(p);
    }
    // N'altère pas la disponibilité des produits historiques en cas d'incohérence API.
    window.VATHINI_PUBLIC_CATALOGUE={products:data.products,activeIds:active};
@@ -44,6 +44,7 @@
    }
    window.VATHINI_CATALOGUE_READY=true;
    document.querySelectorAll('[data-add-to-cart], [data-addtocart], .add-cart-button').forEach(btn=>{const id=btn.dataset.product;if(id){btn.disabled=!active.has(id);}});
+   if(document.body.dataset.worldSlug){const status=document.getElementById('world-dynamic-status');if(status)status.textContent=byWorld.length?'': 'Aucun produit publié dans ce Monde pour le moment.';}
    document.dispatchEvent(new CustomEvent('vathini:catalogue-ready'));
   }catch(e){window.VATHINI_CATALOGUE_READY=false;window.VATHINI_PUBLIC_CATALOGUE={products:[],activeIds:new Set()};document.querySelectorAll('[data-add-to-cart], [data-addtocart], .add-cart-button').forEach(btn=>btn.disabled=true);console.warn('Catalogue public indisponible :',e.message);document.dispatchEvent(new CustomEvent('vathini:catalogue-error'));}
  }
