@@ -9,7 +9,15 @@
  function mapProduct(p){
   if(!p||typeof p.id!=='string'||!/^[a-z0-9][a-z0-9_-]{0,99}$/i.test(p.id)||!Number.isSafeInteger(p.price_cents)||p.price_cents<0)return null;
   const imgs=Array.isArray(p.images)?p.images.filter(x=>typeof x==='string'&&/^\/api\/product-image\/[0-9a-f-]{36}\.(jpg|png|webp)$/.test(x)).slice(0,4).map(x=>new URL(x.slice(1),base).href):[];
-  let contents=[];try{const raw=p.contents;if(Array.isArray(raw))contents=raw;else if(typeof raw==='string'){const parsed=JSON.parse(raw);if(Array.isArray(parsed))contents=parsed;}}catch{}
+  let contents=[];
+  const raw=p.contents;
+  if(Array.isArray(raw))contents=raw;
+  else if(typeof raw==='string'&&raw.trim()){
+   try{const parsed=JSON.parse(raw);if(Array.isArray(parsed))contents=parsed;}catch{}
+   if(!contents.length)contents=raw.split(/\s*;\s*|\r?\n/).map(x=>x.trim()).filter(Boolean);
+  }
+  // Mentions standard du studio : elles restent visibles si le champ D1 est vide.
+  if(!contents.length)contents=['Le plan de construction','La liste complète des pièces, pouvant être directement enregistrée sur les sites de vente compatibles.'];
   return {id:p.id,world_slug:p.world_slug,purchasable:p.purchasable===true,name:asText(p.name),price:money(p.price_cents),pieces:Number.isFinite(Number(p.pieces))?`${p.pieces} pièces`:asText(p.pieces),type:asText(p.type),description:asText(p.description),contents:contents.filter(x=>typeof x==='string'),notice:asText(p.notice),warning:asText(p.warning),images:imgs,dimensions:asText(p.dimensions),weight:asText(p.weight),partsPrice:asText(p.parts_price),partsPriceDate:asText(p.parts_price_date)};
  }
  async function load(){
