@@ -120,6 +120,10 @@ function showCartNotification(message, type = 'success') {
 ========================== */
 
 function addToCart(productId) {
+    if (!window.VATHINI_CATALOGUE_READY || !window.VATHINI_PUBLIC_CATALOGUE?.activeIds?.has(productId)) {
+        showCartNotification("Produit momentanément indisponible.", "warning");
+        return false;
+    }
 
     if (!Object.hasOwn(VATHINI_PRODUCTS, productId)) {
         return false;
@@ -147,6 +151,7 @@ function addToCart(productId) {
 );
 
     renderCart();
+    refreshPromotion();
 
     return true;
 
@@ -165,6 +170,7 @@ function removeFromCart(productId) {
     saveCart(cart);
 
     renderCart();
+    refreshPromotion();
 
 }
 
@@ -195,6 +201,66 @@ function formatPrice(amount) {
 
 }
 
+
+/* ==========================
+   CODES PROMO — estimation depuis D1
+========================== */
+const VATHINI_PROMO_KEY = 'vathini-promo-code';
+const VATHINI_PROMO_URL = 'https://vathini-payments.vathini-cor.workers.dev/api/promos/validate';
+let vathiniPromoResult = null;
+let vathiniPromoRequest = 0;
+function getSavedPromoCode() { return sessionStorage.getItem(VATHINI_PROMO_KEY) || ''; }
+async function refreshPromotion() {
+    const code = getSavedPromoCode();
+    const cart = getCart();
+    const requestId = ++vathiniPromoRequest;
+    vathiniPromoResult = null;
+    const status = document.getElementById('panier-promo-status');
+    const input = document.getElementById('panier-promo-code');
+    if (input && code) input.value = code;
+    if (!code || !cart.length) { renderCart(); return; }
+    if (status) status.textContent = 'Vérification du code...';
+    try {
+        const response = await fetch(VATHINI_PROMO_URL, {
+            method: 'POST', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({promoCode:code, products:cart})
+        });
+        const result = await response.json();
+        if (requestId !== vathiniPromoRequest) return;
+        if (!response.ok || !result.success) throw new Error(result.message || 'Code promo invalide.');
+        vathiniPromoResult = result;
+        if (status) status.textContent = `Code ${result.code} appliqué.`;
+    } catch (error) {
+        if (requestId !== vathiniPromoRequest) return;
+        if (status) status.textContent = error.message || 'Vérification impossible.';
+    }
+    renderCart();
+}
+function setupPromotion() {
+    const input = document.getElementById('panier-promo-code');
+    const apply = document.getElementById('panier-promo-apply');
+    const remove = document.getElementById('panier-promo-remove');
+    if (!input || !apply || !remove) return;
+    apply.addEventListener('click', () => {
+        const code = input.value.trim().toUpperCase();
+        if (!/^[A-Z0-9][A-Z0-9_-]{2,39}$/.test(code)) {
+            document.getElementById('panier-promo-status').textContent = 'Format du code invalide.';
+            return;
+        }
+        sessionStorage.setItem(VATHINI_PROMO_KEY, code);
+        refreshPromotion();
+    });
+    input.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); apply.click(); } });
+    remove.addEventListener('click', () => {
+        sessionStorage.removeItem(VATHINI_PROMO_KEY);
+        input.value = '';
+        vathiniPromoResult = null;
+        ++vathiniPromoRequest;
+        document.getElementById('panier-promo-status').textContent = '';
+        renderCart();
+    });
+    refreshPromotion();
+}
 
 /* ==========================
    AFFICHAGE DU PANIER
@@ -337,8 +403,17 @@ function renderCart() {
     subtotalElement.textContent =
         formattedTotal;
 
-    totalElement.textContent =
-        formattedTotal;
+    const validPromo = vathiniPromoResult &&
+        vathiniPromoResult.subtotalCents === totalCents &&
+        vathiniPromoResult.code === getSavedPromoCode();
+    const discount = validPromo ? vathiniPromoResult.discountCents : 0;
+    totalElement.textContent = formatPrice((totalCents - discount) / 100);
+    const discountRow = document.getElementById('panier-discount-row');
+    const discountValue = document.getElementById('panier-discount');
+    const removePromo = document.getElementById('panier-promo-remove');
+    if (discountRow) discountRow.hidden = !validPromo;
+    if (discountValue) discountValue.textContent = '-' + formatPrice(discount / 100);
+    if (removePromo) removePromo.hidden = !getSavedPromoCode();
 
 
     /* PANIER VIDE */
@@ -387,6 +462,7 @@ document.addEventListener('click', event => {
 ========================== */
 
 renderCart();
+setupPromotion();
 
 
 /* ==========================
@@ -413,9 +489,12 @@ const checkoutButton = document.getElementById('panier-checkout');
 
 if (checkoutButton) {
     checkoutButton.addEventListener('click', () => {
-        if (getCart().length > 0) {
+        if (window.VATHINI_CATALOGUE_READY && getCart().every(id => window.VATHINI_PUBLIC_CATALOGUE?.activeIds?.has(id)) && getCart().length > 0) {
             window.location.href = 'commande.html';
         }
     });
 }
 
+
+// Actualiser le panier après récupération du catalogue D1.
+document.addEventListener("vathini:catalogue-ready", () => { renderCart(); });

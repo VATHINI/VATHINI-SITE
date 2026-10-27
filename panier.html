@@ -53,6 +53,7 @@
 
 <!-- RESPONSIVE GLOBAL -->
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/panier-promo.css">
 
 <!-- FAVICONS -->
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -144,10 +145,17 @@
                             <input
                                 type="text"
                                 id="panier-promo-code"
-                                placeholder="Bientôt disponible"
-                                disabled
+                                placeholder="Votre code promo"
+                                autocomplete="off"
+                                maxlength="40"
                             >
 
+                            <button type="button" id="panier-promo-apply">APPLIQUER</button>
+                            <button type="button" id="panier-promo-remove" hidden>RETIRER</button>
+                            <p id="panier-promo-status" role="status" aria-live="polite"></p>
+                        </div>
+                        <div class="panier-summary-row" id="panier-discount-row" hidden>
+                            <span>Réduction</span><span id="panier-discount">0,00 €</span>
                         </div>
 
                         <div class="panier-summary-total">
@@ -187,6 +195,7 @@
     <script src="/js/pwa-install.js" defer></script>
     <script src="js/products.js"></script>
     <script src="js/panier.js"></script>
+<script src="js/catalogue-public.js"></script>
     <script src="js/components.js"></script>
 
 </body>

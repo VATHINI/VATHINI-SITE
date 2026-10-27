@@ -24,6 +24,23 @@
 
     if (!empty || !layout || !items || !count || !total) return;
 
+    let verifiedPromotion = null;
+    async function refreshOrderPromo() {
+        const code = sessionStorage.getItem('vathini-promo-code') || '';
+        const cart = getCart();
+        verifiedPromotion = null;
+        if (code && cart.length) {
+            try {
+                const response = await fetch('https://vathini-payments.vathini-cor.workers.dev/api/promos/validate', {
+                    method:'POST', headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({promoCode:code,products:cart})
+                });
+                const result = await response.json();
+                if (response.ok && result.success) verifiedPromotion = result;
+            } catch (error) { console.warn('Promotion temporairement indisponible.', error); }
+        }
+        renderOrder();
+    }
     function renderOrder() {
 
         const cart = getCart();
@@ -68,7 +85,18 @@
 
         count.textContent = String(cart.length);
 
-        total.textContent = formatPrice(totalCents / 100);
+        const valid = verifiedPromotion && verifiedPromotion.subtotalCents === totalCents &&
+            verifiedPromotion.code === (sessionStorage.getItem('vathini-promo-code') || '');
+        const discount = valid ? verifiedPromotion.discountCents : 0;
+        total.textContent = formatPrice((totalCents - discount) / 100);
+        const promoRow = document.getElementById('commande-promo-row');
+        const discountRow = document.getElementById('commande-discount-row');
+        if (promoRow) promoRow.hidden = !valid;
+        if (discountRow) discountRow.hidden = !valid;
+        if (valid) {
+            document.getElementById('commande-promo-label').textContent = verifiedPromotion.code;
+            document.getElementById('commande-discount').textContent = '-' + formatPrice(discount / 100);
+        }
 
     }
 
@@ -101,6 +129,7 @@
     updateClientType();
 
     renderOrder();
+    refreshOrderPromo();
 
     /* ==========================
 
@@ -513,6 +542,11 @@ function getIdempotencyKey(orderData) {
 
             const cart = getCart();
 
+            if (!window.VATHINI_CATALOGUE_READY || !cart.every(id => window.VATHINI_PUBLIC_CATALOGUE?.activeIds?.has(id))) {
+                status.textContent = 'Catalogue indisponible ou produit non achetable. Réessayez plus tard.';
+                return;
+            }
+
             if (!cart.length) {
 
                 status.textContent = 'Votre panier est vide.';
@@ -524,6 +558,7 @@ function getIdempotencyKey(orderData) {
             const data = {
 
     products: cart,
+    promoCode: sessionStorage.getItem('vathini-promo-code') || null,
 
     clientType: form.querySelector(
 
@@ -629,6 +664,32 @@ if (remainingTime > 0) {
 
     throw new Error(result.message || 'Erreur de préparation.');
 
+}
+
+// Simulation réservée au Worker TEST : aucune redirection, aucun paiement confirmé.
+// Ne jamais activer ce comportement sur l'API de production.
+if (result.dryRun === true &&
+    new URL(API_URL).hostname === 'vathini-payments-test.vathini-cor.workers.dev') {
+    const reference = typeof result.orderId === 'string' ? result.orderId : 'indisponible';
+    const amount = Number.isSafeInteger(result.totalCents)
+        ? formatPrice(result.totalCents / 100)
+        : 'indisponible';
+    const message = 'SIMULATION TEST réussie : commande enregistrée en attente (' +
+        amount + '). Référence : ' + reference +
+        '. Aucun paiement effectué, aucune session CAWL créée.';
+
+    status.textContent = message;
+    if (paymentResult) {
+        paymentResult.hidden = false;
+        paymentResult.textContent = message;
+    }
+    // La tentative précédente reste identifiable côté D1, mais ne bloque pas
+    // une nouvelle simulation. Le panier et les données client sont conservés.
+    sessionStorage.removeItem(IDEMPOTENCY_STORAGE_KEY);
+    paymentInProgress = false;
+    payButton.disabled = false;
+    payButton.textContent = 'RELANCER UNE SIMULATION TEST';
+    return;
 }
 
 if (
@@ -805,4 +866,5 @@ if (pendingOrderId && checkoutAttempt) {
 
 }
 
+document.addEventListener('vathini:catalogue-ready', () => { refreshOrderPromo(); });
 })();

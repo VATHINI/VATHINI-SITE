@@ -1,81 +1,59 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const form = document.querySelector("#contact-form");
-    const errorMessage = document.querySelector(".form-error");
-    const successMessage = document.querySelector(".form-success");
-
-    form.addEventListener("submit", async (event) => {
-
-        // BLOQUE IMMÉDIATEMENT LA REDIRECTION
+// VATHINI - Formulaire CONTACT - TEST UNIQUEMENT
+// Ne pas deployer sur le site public avant validation complete.
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const errorBox = form.querySelector('.form-error');
+    const successBox = form.querySelector('.form-success');
+    const button = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
-
-        // Vérification des champs
+        errorBox.style.display = 'none';
+        if (successBox) successBox.style.display = 'none';
         if (!form.checkValidity()) {
-
-            errorMessage.textContent =
-                "Veuillez remplir tous les champs et accepter la politique de confidentialité.";
-
-            errorMessage.style.display = "block";
-
-            if (successMessage) {
-                successMessage.style.display = "none";
-            }
-
+            errorBox.textContent = 'Veuillez remplir tous les champs et accepter la politique de confidentialité.';
+            errorBox.style.display = 'block';
             form.reportValidity();
-
             return;
         }
-
-        errorMessage.style.display = "none";
-
-        const formData = new FormData(form);
-
-        try {
-
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
-                }
-            });
-
-            const data = await response.json();
-
-            console.log("Réponse Web3Forms :", data);
-
-            // ON NE CONSIDÈRE L'ENVOI RÉUSSI
-            // QUE SI WEB3FORMS LE CONFIRME
-            if (data.success === true) {
-
-                form.reset();
-
-                if (successMessage) {
-                    successMessage.textContent =
-                        "Votre message a bien été envoyé. Nous reviendrons vers vous prochainement.";
-
-                    successMessage.style.display = "block";
-                }
-
-            } else {
-
-                throw new Error(
-                    data.message || "Web3Forms a refusé l'envoi."
-                );
-
-            }
-
-        } catch (error) {
-
-            console.error("Erreur Web3Forms :", error);
-
-            errorMessage.textContent =
-                "Le message n'a pas pu être envoyé. Veuillez réessayer.";
-
-            errorMessage.style.display = "block";
-
+        const token = window.turnstile?.getResponse(form.querySelector('.cf-turnstile'));
+        if (!token) {
+            errorBox.textContent = 'Veuillez terminer la vérification antispam.';
+            errorBox.style.display = 'block';
+            return;
         }
-
+        const data = new FormData(form);
+        const payload = {
+            type: 'contact',
+            prenom: data.get('prenom'),
+            nom: data.get('nom'),
+            email: data.get('email'),
+            message: data.get('message'),
+            privacy_accepted: data.get('privacy') === 'on',
+            turnstileToken: token
+        };
+        button.disabled = true;
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            if (!response.ok || result.ok !== true) {
+                throw new Error(result.message || 'Envoi refuse.');
+            }
+            form.reset();
+            if (successBox) {
+                successBox.textContent = 'Votre message a bien été enregistré.';
+                successBox.style.display = 'block';
+            }
+        } catch (error) {
+            errorBox.textContent = error.message || 'Envoi impossible. Veuillez réessayer.';
+            errorBox.style.display = 'block';
+        } finally {
+            window.turnstile?.reset(form.querySelector('.cf-turnstile'));
+            button.disabled = false;
+        }
     });
-
 });

@@ -184,24 +184,9 @@
         <form
             class="contact-form"
             id="contact-form"
-            action="https://api.web3forms.com/submit"
+            action="https://vathini-payments-test.vathini-cor.workers.dev/api/inquiries"
             method="POST"
             novalidate
-        >
-
-
-            <!-- WEB3FORMS -->
-
-            <input
-            type="hidden"
-            name="access_key"
-            value="648f9101-1148-42fe-8ef8-42f81120517e"
-        >
-
-        <input
-            type="hidden"
-            name="subject"
-            value="Nouveau message depuis VATHINI.fr"
         >
 
 
@@ -299,6 +284,8 @@
 </p>
 
 
+            <!-- Protection antispam Turnstile -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFnRobk7XgzLNhYJ" data-theme="auto"></div>
         </form>
 
 
@@ -308,6 +295,7 @@
 
 <div id="site-footer"></div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="js/contact.js"></script>
 <script src="/js/pwa-install.js" defer></script>
 <script src="js/products.js"></script>

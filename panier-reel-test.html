@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <link rel="stylesheet" href="css/cart-notifications.css">
+    
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Consultez votre panier VATHINI et retrouvez vos plans de construction numériques."
+    >
+
+    <meta name="author" content="VATHINI">
+    <meta name="robots" content="noindex, follow">
+
+    <link
+        rel="canonical"
+        href="https://www.vathini.fr/panier.html"
+    >
+
+    <title>Votre panier | VATHINI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+    
+    <!-- STYLES COMMUNS -->
+<link rel="stylesheet" href="css/components.css">
+
+<!-- STYLES VATHINI -->
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+
+<!-- STYLES PANIER -->
+<link rel="stylesheet" href="css/panier.css">
+
+<!-- RESPONSIVE GLOBAL -->
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/panier-promo.css">
+
+<!-- FAVICONS -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" href="images/favicon.png" sizes="32x32">
+<link rel="icon" href="images/favicon.png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/favicon.png">
+
+<!-- APPLICATION VATHINI -->
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta name="theme-color" content="#12120F">
+<meta name="apple-mobile-web-app-title" content="VATHINI">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+</head>
+
+<body>
+
+    <div id="site-header"></div>
+
+    <section id="catalogue-test-controls" style="max-width:1200px;margin:24px auto;padding:20px;background:#26241f;color:#fffdf9;border:1px solid #b48a5a;border-radius:12px"><strong>TEST LOCAL — Panier réel VATHINI + catalogue Studio D1 TEST</strong><p>Aucun paiement ni commande. Le stockage de ce test est séparé du panier public.</p><p id="catalogue-test-status" role="status">Chargement du catalogue D1 TEST…</p><div id="catalogue-test-actions"></div><button type="button" id="catalogue-test-refresh" style="padding:10px;margin-top:12px">Actualiser depuis D1</button></section><main class="panier-page">
+
+        <section class="panier-section">
+
+            <h1 class="panier-title">
+                VOTRE PANIER - VATHINI
+            </h1>
+
+            <div class="panier-layout">
+
+                <!-- LISTE DES PRODUITS -->
+
+                <div class="panier-products">
+
+                    <div class="panier-products-header">
+
+                        <span>Produit</span>
+                        <span>Nom</span>
+                        <span>Prix</span>
+
+                    </div>
+
+                    <div id="panier-items"></div>
+
+                    <div
+                        id="panier-empty"
+                        class="panier-empty"
+                        hidden
+                    >
+
+                        <p>Votre panier est actuellement vide.</p>
+
+                        <a href="galerie.html">
+                            DÉCOUVRIR LA GALERIE
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- RÉCAPITULATIF -->
+
+                <aside class="panier-summary">
+
+                    <div class="panier-summary-content">
+
+                        <div class="panier-summary-row">
+
+                            <span>Nombre de produits</span>
+
+                            <span id="panier-count">0</span>
+
+                        </div>
+
+                        <div class="panier-summary-row">
+
+                            <span>Sous-total</span>
+
+                            <span id="panier-subtotal">0,00 €</span>
+
+                        </div>
+
+                        <div class="panier-promo" hidden>
+
+                            <label for="panier-promo-code">
+                                Ajouter un code promo :
+                            </label>
+
+                            <input
+                                type="text"
+                                id="panier-promo-code"
+                                placeholder="Votre code promo"
+                                autocomplete="off"
+                                maxlength="40"
+                            >
+
+                            <button type="button" id="panier-promo-apply">APPLIQUER</button>
+                            <button type="button" id="panier-promo-remove" hidden>RETIRER</button>
+                            <p id="panier-promo-status" role="status" aria-live="polite"></p>
+                        </div>
+                        <div class="panier-summary-row" id="panier-discount-row" hidden>
+                            <span>Réduction</span><span id="panier-discount">0,00 €</span>
+                        </div>
+
+                        <div class="panier-summary-total">
+
+                            <span>Total :</span>
+
+                            <strong id="panier-total">
+                                0,00 €
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panier-summary-footer">
+
+                        <button
+                            type="button"
+                            id="panier-checkout"
+                            disabled
+                        >
+                            PAYER
+                        </button>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="/js/pwa-install.js" defer></script>
+    <script src="js/catalogue-panier-test.js"></script>
+    <script src="js/panier-test.js"></script>
+    <script src="js/components.js"></script>
+
+</body>
+</html>

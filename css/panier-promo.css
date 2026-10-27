@@ -1,0 +1,78 @@
+/* VATHINI - Correctif interface codes promo (TEST) */
+.panier-summary-content .panier-promo {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+    min-width: 0;
+    width: 100%;
+    margin: 18px 0 10px;
+}
+.panier-summary-content .panier-promo label {
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    line-height: 1.45;
+}
+.panier-summary-content .panier-promo input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #A9A19A;
+    border-radius: 5px;
+    background: #FFFDF9;
+    color: #12120F;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.3;
+}
+.panier-summary-content .panier-promo input:focus-visible {
+    outline: 2px solid #B48A5A;
+    outline-offset: 2px;
+}
+.panier-summary-content .panier-promo button {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 38px;
+    padding: 10px 12px;
+    border: 1px solid #12120F;
+    border-radius: 5px;
+    background: #12120F;
+    color: #FFFDF9;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+.panier-summary-content .panier-promo button:hover {
+    background: #B48A5A;
+    border-color: #B48A5A;
+}
+.panier-summary-content .panier-promo button:focus-visible {
+    outline: 2px solid #B48A5A;
+    outline-offset: 2px;
+}
+.panier-summary-content .panier-promo button[hidden],
+.panier-summary-content .panier-summary-row[hidden] {
+    display: none !important;
+}
+.panier-summary-content .panier-promo #panier-promo-status {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+.panier-summary-content .panier-promo #panier-promo-status:empty {
+    display: none;
+}
+.panier-summary-content #panier-discount-row {
+    gap: 8px;
+}

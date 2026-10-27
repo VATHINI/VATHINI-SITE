@@ -1,0 +1,25 @@
+/* TEST uniquement : grille de trois cartes et adaptation responsive */
+@media (min-width: 1200px) {
+  .actualites-content { padding-left: 45px; padding-right: 45px; }
+  .news-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 65px 28px; }
+  .news-card { min-width: 0; }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 65px 30px; }
+}
+@media (max-width: 768px) {
+  .news-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ==========================================
+   VATHINI — PROPORTIONS ORIGINALES
+   Actualités TEST
+========================================== */
+
+@media (min-width: 1200px) {
+    .news-grid {
+        grid-template-columns: repeat(3, minmax(0, 400px));
+        justify-content: center;
+        gap: 65px 28px;
+    }
+}
