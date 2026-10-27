@@ -1,5 +1,4 @@
-// VATHINI - Formulaire CONTACT - TEST UNIQUEMENT
-// Ne pas deployer sur le site public avant validation complete.
+// VATHINI - Formulaire CONTACT - PROD
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     if (!form) return;

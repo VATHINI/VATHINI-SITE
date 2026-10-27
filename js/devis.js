@@ -1,5 +1,4 @@
-// VATHINI - Formulaire DEVIS - TEST UNIQUEMENT
-// Ne pas deployer sur le site public avant validation complete.
+// VATHINI - Formulaire DEVIS - PROD
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('devis-form');
     if (!form) return;
