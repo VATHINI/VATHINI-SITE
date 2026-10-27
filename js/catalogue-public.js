@@ -40,14 +40,20 @@
     const existing=new Set([...grid.querySelectorAll('[data-product]')].map(e=>e.dataset.product));
     for(const p of byWorld){if(existing.has(p.id))continue;
      const card=document.createElement('article');card.className='product-card';
-     const visual=document.createElement('button');visual.type='button';visual.className='product-image-link';visual.dataset.product=p.id;
-     if(p.images[0]){const img=document.createElement('img');img.src=p.images[0];img.alt=p.name;img.loading='lazy';visual.append(img);}
+     const visual=document.createElement('button');visual.type='button';visual.className='product-image-link';visual.dataset.product=p.id;visual.setAttribute('aria-label','Voir la fiche de '+p.name);
+     const imageBox=document.createElement('div');imageBox.className='product-image';
+     if(p.images[0]){const img=document.createElement('img');img.src=p.images[0];img.alt=p.name;img.loading='lazy';imageBox.append(img);}
+     visual.append(imageBox);
+     const pieces=document.createElement('div');pieces.className='product-pieces';const piecesText=document.createElement('span');piecesText.textContent=p.pieces;pieces.append(piecesText);
      const title=document.createElement('h2');title.textContent=p.name;
      const info=document.createElement('div');info.className='product-info';info.append(title);
+     const type=document.createElement('p');type.className='product-type';type.textContent=p.type;info.append(type);
      const price=document.createElement('p');price.className='product-price';price.textContent=p.price;info.append(price);
+     const actions=document.createElement('div');actions.className='product-actions';
      const details=document.createElement('button');details.type='button';details.className='product-details-button';details.dataset.product=p.id;details.textContent='Voir le Produit';
      const add=document.createElement('button');add.type='button';add.className='add-cart-button';add.dataset.product=p.id;add.dataset.addToCart='';add.textContent=p.purchasable?'Ajouter au Panier':'Indisponible';add.disabled=!p.purchasable;
-     card.append(visual,info,details,add);grid.append(card);existing.add(p.id);
+     actions.append(details,add);
+     card.append(visual,pieces,info,actions);grid.append(card);existing.add(p.id);
     }
    }
    window.VATHINI_CATALOGUE_READY=true;

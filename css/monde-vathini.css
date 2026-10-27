@@ -1056,3 +1056,20 @@ body {
     transform: rotate(90deg);
 
 }
+
+/* VATHINI — Typographie uniforme des fiches produits (Studio + catalogue historique).
+   La description respire avant les caractéristiques ; les textes longs sont justifiés. */
+.product-sheet .product-description {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.product-sheet #product-description {
+    margin-bottom: 20px;
+}
+
+/* Les valeurs techniques restent alignées à gauche pour leur lisibilité. */
+.product-sheet .product-specifications {
+    text-align: left;
+}
