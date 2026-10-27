@@ -1,10 +1,10 @@
-/* VATHINI — actualités publiques PROD. Lecture seule. */
+/* VATHINI — Actualités PROD, source unique : VATHINI Studio. */
 (() => {
   'use strict';
   const API_BASE = 'https://vathini-news-public.vathini-cor.workers.dev';
   const grid = document.querySelector('.news-grid');
-  const content = document.querySelector('.actualites-content');
-  if (!grid || !content) return;
+  const status = document.getElementById('news-status');
+  if (!grid || !status) return;
 
   const el = (tag, className = '', value) => {
     const node = document.createElement(tag);
@@ -20,22 +20,30 @@
     String(value || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean)
       .forEach(p => target.append(el('p', '', p)));
   };
-  const open = overlay => overlay.classList.add('active');
-  const close = overlay => overlay.classList.remove('active');
-  // Placer les fenêtres directement sous body : elles restent à la bonne
-  // hauteur même si la page est animée ou si l'article est en bas de grille.
-  document.querySelectorAll('.article-overlay').forEach(overlay => {
-    document.body.append(overlay);
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      document.querySelectorAll('.article-overlay.active').forEach(close);
-    }
-  });
-  const historicalDates = {
-    'article-naissance': '2026-08-03',
-    'article-site': '2026-09-01'
+  let activeOverlay = null;
+  let opener = null;
+  const close = () => {
+    if (!activeOverlay) return;
+    activeOverlay.classList.remove('active');
+    activeOverlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('vathini-news-open');
+    activeOverlay = null;
+    if (opener) opener.focus({ preventScroll: true });
+    opener = null;
   };
+  const open = (overlay, card) => {
+    if (activeOverlay) close();
+    opener = card;
+    activeOverlay = overlay;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.scrollTop = 0;
+    document.body.classList.add('vathini-news-open');
+    overlay.querySelector('.article-close')?.focus({ preventScroll: true });
+  };
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && activeOverlay) close();
+  });
 
   async function load() {
     try {
@@ -45,20 +53,23 @@
       if (payload.environment !== 'PROD' || !Array.isArray(payload.news)) {
         throw new Error('Réponse API inattendue');
       }
-      let count = 0;
-      for (const article of payload.news) {
-        if (article.status !== 'published' ||
-            !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug || '') ||
-            !/^\d{4}-\d{2}-\d{2}$/.test(article.publication_date || '')) continue;
-        const id = `article-cms-${article.slug}`;
-        if (document.getElementById(id)) continue;
+      const articles = payload.news.filter(article =>
+        article.status === 'published' &&
+        /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug || '') &&
+        /^\d{4}-\d{2}-\d{2}$/.test(article.publication_date || '')
+      ).sort((a, b) => b.publication_date.localeCompare(a.publication_date) || a.slug.localeCompare(b.slug));
+
+      grid.replaceChildren();
+      document.querySelectorAll('body > .article-overlay[data-cms-news]').forEach(node => node.remove());
+      for (const article of articles) {
         const filename = typeof article.image_key === 'string' ? article.image_key.split('/').pop() : '';
         const imageURL = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\.(?:jpg|png|webp)$/.test(filename)
           ? `${API_BASE}/api/news-image/${filename}` : '';
         const author = `Rédigé et publié par ${article.author || 'VATHINI'}`;
         const card = el('article', 'news-card');
-        card.dataset.article = id;
-        card.dataset.publicationDate = article.publication_date;
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Lire : ${article.title || 'Actualité'}`);
         card.append(el('span', 'tape tape-top'), el('h2', '', article.title || ''),
           el('div', 'news-date', dateFR(article.publication_date)));
         if (imageURL) {
@@ -71,7 +82,11 @@
         card.append(el('p', 'news-author', author));
 
         const overlay = el('div', 'article-overlay');
-        overlay.id = id;
+        overlay.dataset.cmsNews = article.slug;
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', article.title || 'Actualité');
+        overlay.setAttribute('aria-hidden', 'true');
         const opened = el('article', 'article-open');
         const back = el('button', 'article-close', 'RETOUR');
         back.type = 'button';
@@ -80,9 +95,9 @@
           el('h2', '', article.title || ''),
           el('div', 'article-date', dateFR(article.publication_date)));
         const body = el('div', 'article-body');
-        const text = el('div', 'article-text');
-        paragraphs(text, article.body);
-        body.append(text);
+        const txt = el('div', 'article-text');
+        paragraphs(txt, article.body);
+        body.append(txt);
         if (imageURL) {
           const img = el('img', 'article-image');
           img.src = imageURL;
@@ -97,35 +112,26 @@
         }
         opened.append(el('p', 'article-author', author));
         overlay.append(opened);
-        card.tabIndex = 0;
-        card.setAttribute('role', 'button');
-        card.addEventListener('click', () => open(overlay));
+        card.addEventListener('click', () => open(overlay, card));
         card.addEventListener('keydown', event => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            open(overlay);
+            open(overlay, card);
           }
         });
-        back.addEventListener('click', () => close(overlay));
+        back.addEventListener('click', close);
+        overlay.addEventListener('click', event => {
+          if (event.target === overlay) close();
+        });
         grid.append(card);
         document.body.append(overlay);
-        count++;
       }
-      grid.querySelectorAll('.news-card').forEach(card => {
-        if (!card.dataset.publicationDate) {
-          card.dataset.publicationDate = historicalDates[card.dataset.article] || '0000-00-00';
-        }
-      });
-      const cards = [...grid.querySelectorAll('.news-card')];
-      cards.sort((a, b) => (b.dataset.publicationDate || '').localeCompare(a.dataset.publicationDate || ''));
-      grid.replaceChildren(...cards);
-      if (count > 0) {
-        const coming = document.querySelector('.news-coming');
-        if (coming) coming.style.display = 'none';
-      }
+      status.textContent = articles.length ? '' : 'De nouvelles actualités seront disponibles prochainement !';
+      status.hidden = articles.length > 0;
     } catch (error) {
       console.error('VATHINI : chargement des actualités PROD impossible.', error);
-      // Les articles historiques restent visibles si l'API est indisponible.
+      status.textContent = 'Les actualités sont momentanément indisponibles.';
+      status.hidden = false;
     }
   }
   load();
