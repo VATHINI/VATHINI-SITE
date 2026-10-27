@@ -22,6 +22,16 @@
   };
   const open = overlay => overlay.classList.add('active');
   const close = overlay => overlay.classList.remove('active');
+  // Placer les fenêtres directement sous body : elles restent à la bonne
+  // hauteur même si la page est animée ou si l'article est en bas de grille.
+  document.querySelectorAll('.article-overlay').forEach(overlay => {
+    document.body.append(overlay);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.article-overlay.active').forEach(close);
+    }
+  });
   const historicalDates = {
     'article-naissance': '2026-08-03',
     'article-site': '2026-09-01'
@@ -98,7 +108,7 @@
         });
         back.addEventListener('click', () => close(overlay));
         grid.append(card);
-        content.append(overlay);
+        document.body.append(overlay);
         count++;
       }
       grid.querySelectorAll('.news-card').forEach(card => {

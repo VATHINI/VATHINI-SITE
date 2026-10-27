@@ -136,7 +136,7 @@ body{
     min-height: 850px;
 
     margin: 8px auto 0;
-    padding: 80px 120px 60px;
+    padding: 80px 55px 60px;
 
     background: #B0A391;
 }
@@ -144,11 +144,11 @@ body{
 .news-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 400px));
+    grid-template-columns: repeat(3, minmax(0, 400px));
 
     justify-content: center;
 
-    gap: 110px;
+    gap: 35px;
 }
 
 
@@ -285,7 +285,7 @@ body{
 ========================== */
 
 .article-overlay {
-    position: absolute;
+    position: fixed;
 
     inset: 0;
 
@@ -295,7 +295,9 @@ body{
     justify-content: center;
     align-items: flex-start;
 
-    padding: 80px 100px;
+    padding: 70px 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     background: #B0A391;
 
@@ -560,4 +562,44 @@ body{
 
 .pwa-install {
     margin-top: 60px;
+}
+/* ==========================
+   ACTUALITÉS — GRILLE ADAPTATIVE ET LECTURE
+========================== */
+
+body:has(.article-overlay.active) {
+    overflow: hidden;
+}
+
+.article-overlay {
+    height: 100dvh;
+}
+
+.article-open {
+    margin: auto 0;
+    padding-bottom: 65px;
+}
+
+@media (max-width: 1250px) {
+    .actualites-content { padding: 75px 45px 55px; }
+    .news-grid { grid-template-columns: repeat(2, minmax(0, 400px)); gap: 55px 35px; }
+}
+
+@media (max-width: 760px) {
+    .actualites-content { padding: 65px 18px 45px; }
+    .news-grid { grid-template-columns: minmax(0, 400px); gap: 55px; }
+    .article-overlay { padding: 45px 14px 24px; }
+    .article-open { padding: 45px 22px 65px; }
+    .article-date { margin: 0 0 25px; }
+    .article-body { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .article-open h2 { font-size: 19px; }
+    .article-close { right: 30px; }
+    .article-author { max-width: calc(100% - 40px); font-size: 10px; }
+}
+
+@media (max-width: 480px) {
+    .actualites-content { width: calc(100% - 24px); }
+    .news-card { padding: 32px 20px 35px; }
+    .news-card h2 { font-size: 18px; }
+    .news-card img { max-width: 100%; }
 }
