@@ -1073,3 +1073,90 @@ body {
 .product-sheet .product-specifications {
     text-align: left;
 }
+
+
+/* VATHINI — galerie de photos : grand visuel centré + miniatures cliquables.
+   Styles partagés entre les produits existants et ceux publiés via Studio. */
+.product-sheet .product-gallery {
+    min-width: 0;
+    min-height: 420px;
+    padding: 22px 22px 20px;
+    gap: 18px;
+}
+.product-sheet .product-gallery-main {
+    width: 100%;
+    height: clamp(280px, 27vw, 390px);
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-sheet .product-gallery-main img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+.product-sheet .product-gallery-navigation {
+    margin-top: 0;
+    justify-content: center;
+    width: 100%;
+    gap: 0;
+}
+.product-sheet .product-gallery-dots {
+    flex: 0 1 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.product-sheet .gallery-thumbnail {
+    flex: 0 0 auto;
+    width: 68px;
+    height: 62px;
+    max-width: none;
+    padding: 5px;
+    border: 1px solid #D8D0C7;
+    border-radius: 9px;
+    background: #FFFDF9;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+.product-sheet .gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.product-sheet .gallery-thumbnail.active,
+.product-sheet .gallery-thumbnail[aria-pressed="true"] {
+    border: 2px solid #B48A5A;
+    box-shadow: 0 0 0 1px #B48A5A;
+    background: #FFFDF9;
+}
+.product-sheet .gallery-thumbnail:hover {
+    border-color: #B48A5A;
+    background: #FFFDF9;
+}
+.product-sheet .gallery-thumbnail:focus-visible {
+    outline: 3px solid #B48A5A;
+    outline-offset: 3px;
+}
+.product-sheet .gallery-next { display: none !important; }
+@media (max-width: 600px) {
+    .product-sheet .product-gallery {
+        min-height: 0;
+        padding: 18px 14px;
+    }
+    .product-sheet .product-gallery-main {
+        height: 260px;
+    }
+    .product-sheet .gallery-thumbnail {
+        width: 58px;
+        height: 54px;
+    }
+}
