@@ -2004,3 +2004,84 @@
 
     gap: 12px;
 }
+
+
+/* ==========================================================
+   VATHINI — BOUTIQUE ACCUEIL : 4 / 3 / 2 / 1 CARTES
+   14/11/2026 — Modifications limitées à .gallery-preview
+   ========================================================== */
+
+/* Disposition stable : jamais de retour à la ligne des cartes. */
+.gallery-preview {
+    min-height: 0;
+    padding: clamp(65px, 8vw, 120px) 0;
+}
+
+.gallery-preview .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: min(90%, 1350px);
+    gap: clamp(14px, 2.5vw, 50px);
+    margin-inline: auto;
+    align-items: center;
+    justify-items: stretch;
+}
+
+.gallery-preview .gallery-card {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: clamp(390px, 43vw, 700px);
+}
+
+/* PC portable : trois images */
+@media (max-width: 1439px) {
+    .gallery-preview .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .gallery-preview .gallery-card:nth-child(n + 4) {
+        display: none;
+    }
+}
+
+/* Tablette : deux images */
+@media (max-width: 1023px) {
+    .gallery-preview .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(90%, 720px);
+    }
+    .gallery-preview .gallery-card:nth-child(n + 3) {
+        display: none;
+    }
+    .gallery-preview .gallery-card {
+        height: clamp(370px, 58vw, 620px);
+    }
+}
+
+/* Téléphone : une seule image, sans défilement de quatre cartes */
+@media (max-width: 767px) {
+    .gallery-preview {
+        padding: 65px 0;
+    }
+    .gallery-preview .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(80%, 340px);
+        gap: 0;
+    }
+    .gallery-preview .gallery-card:nth-child(n + 2) {
+        display: none;
+    }
+    .gallery-preview .gallery-card {
+        height: clamp(390px, 125vw, 560px);
+    }
+    .gallery-preview .gallery-title {
+        max-width: 94vw;
+    }
+    .gallery-preview .gallery-title h2 {
+        font-size: clamp(2.3rem, 11vw, 4rem);
+    }
+    .gallery-preview .gallery-title p {
+        font-size: clamp(.62rem, 2.5vw, .85rem);
+        letter-spacing: 1px;
+    }
+}
