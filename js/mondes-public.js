@@ -34,7 +34,13 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
       if (data.environment !== 'PROD' || !Array.isArray(data.worlds)) throw new Error('Réponse invalide');
-      root.replaceChildren(...data.worlds.map(card));
+      // Un monde mis en avant passe en premier ; les autres gardent l’ordre de l’API.
+      // Compatible avec les anciennes réponses qui ne fournissent pas is_featured.
+      const worlds = [...data.worlds].sort((a, b) =>
+        Number(b.is_featured === 1 || b.is_featured === true) -
+        Number(a.is_featured === 1 || a.is_featured === true)
+      );
+      root.replaceChildren(...worlds.map(card));
       if (!data.worlds.length) root.append(make('p','', 'Aucun Monde publié pour le moment.'));
     } catch (error) {
       console.error('Mondes VATHINI indisponibles', error);
